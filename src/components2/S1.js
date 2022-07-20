@@ -1,0 +1,86 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import S2 from "./S2";
+import UpdateComponent from "./Update.component";
+import CreateComponent from "./Create.component";
+import DeleteComponent from "./Delete.component";
+
+function S1({ id, admin }) {
+  const [isSet, setisSet] = useState(false);
+  const [focusedlist, setfocusedlist] = useState();
+  const [symps, setSymp] = useState([]);
+  const uri = `http://localhost:8080/s1/${id}`;
+  const [isModify, setisModify] = useState(false);
+
+  useEffect(() => {
+    axios
+      .get(uri)
+      .then((res) => {
+        setSymp(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  function choixPb(e) {
+    setisSet(!isSet);
+    setfocusedlist(e.target.value);
+  }
+
+  return (
+    <div className="faq-list-s1">
+      {symps.map((symp) => (
+        <div key={symp.id_s1}>
+          {symp.title_s1}
+          <button
+            className="button"
+            value={symp.id_s1}
+            onClick={(e) => choixPb(e)}
+          >
+            Choix
+          </button>
+          {admin && (
+            <button
+              className="button"
+              value={symp.id_s1}
+              onClick={(e) => {
+                setisModify(!isModify);
+                setfocusedlist(e.target.value);
+              }}
+            >
+              Modifier
+            </button>
+          )}
+          {isModify && focusedlist === `${symp.id_s1}` && (
+            <div>
+              <UpdateComponent
+                id={symp.id_s1}
+                title={symp.title_s1}
+                base={"s1"}
+                champ={"title_s1"}
+              />
+
+              <CreateComponent
+                id={symp.id_s1}
+                title={symp.title_s2}
+                champ={"title_s2"}
+                champ2={"ind_s1"}
+                base={"s2"}
+              />
+              <DeleteComponent id={symp.id_s1} base={"s1"} champ={"id_s1"} />
+            </div>
+          )}
+          {isSet && focusedlist === `${symp.id_s1}` ? (
+            <div>
+              <S2 id_s1={symp.id_s1} admin={admin} />
+            </div>
+          ) : null}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default S1;

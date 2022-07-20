@@ -1,0 +1,46 @@
+.faq-list-pb{
+    padding: 40px;
+    width: auto;
+ }
+
+.faq-item-pb{
+    padding: 25px;
+    width: auto;
+    border-bottom: solid 1px black;
+}
+
+.faq-item-pb:hover{
+    border:5px solid rgb(214, 158, 36);
+    
+}
+
+.faq-list-s1{
+    color: black;
+    margin: 25px;
+}
+
+.faq-list-s1:hover{
+    background-color: aliceblue;
+}
+
+.faq-list-s2{
+    color: black;
+    margin: 25px;
+}
+
+.faq-list-s2:hover{
+    background-color: beige;
+}
+
+.button{
+    padding: 10px;
+    margin-left: 20px;
+    border-radius: 20px;
+}
+
+.faq_sol_text{
+    border: solid 1px black;
+    min-height: 400px;
+    padding: 10px;
+    max-width: 50%;
+}
