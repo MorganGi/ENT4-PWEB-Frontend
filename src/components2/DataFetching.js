@@ -29,53 +29,53 @@ function DataFetching({ admin }) {
   }
 
   return (
-    <div>
-      <ul className="faq-list-pb">
-        {posts.map(({ id, title_pb }) => (
-          <div key={id} className="faq-item-pb">
-            {" "}
-            {title_pb}
-            <button className="button" value={id} onClick={(e) => choixPb(e)}>
-              Choix
-            </button>
+    <div className="faq-list-pb">
+      {posts.map(({ id, title_pb }) => (
+        <div key={id} className="mainpb">
+          {" "}
+          {title_pb}
+          <div className="main2">
+            <button
+              className="fleche"
+              value={id}
+              onClick={(e) => choixPb(e)}
+            ></button>
             {admin && (
               <button
-                className="button"
+                className="ecrou"
                 value={id}
                 onClick={(e) => {
                   setisModify(!isModify);
                   setfocusedlist(e.target.value);
                 }}
-              >
-                Modifier
-              </button>
+              ></button>
             )}
-            {isModify && focusedlist === `${id}` && (
-              <div>
-                <UpdateComponent
-                  id={id}
-                  title={title_pb}
-                  base={"pb"}
-                  champ={"title_pb"}
-                />
-                <CreateComponent
-                  id={id}
-                  base={"s1"}
-                  champ={"title_s1"}
-                  champ2={"ind_pb"}
-                  title={title_pb}
-                />
-                <DeleteComponent id={id} base={"pb"} champ={"id"} />
-              </div>
-            )}
-            {isSet && focusedlist === `${id}` ? (
-              <div>
-                <S1 id={id} admin={admin} />
-              </div>
-            ) : null}
           </div>
-        ))}
-      </ul>
+          {isModify && focusedlist === `${id}` && (
+            <div className="main_crud">
+              <UpdateComponent
+                id={id}
+                title={title_pb}
+                base={"pb"}
+                champ={"title_pb"}
+              />
+              <CreateComponent
+                id={id}
+                base={"s1"}
+                champ={"title_s1"}
+                champ2={"ind_pb"}
+                title={title_pb}
+              />
+              <DeleteComponent id={id} base={"pb"} champ={"id"} />
+            </div>
+          )}
+          {isSet && focusedlist === `${id}` ? (
+            <div className="choix-main">
+              <S1 id={id} admin={admin} />
+            </div>
+          ) : null}
+        </div>
+      ))}
     </div>
   );
 }

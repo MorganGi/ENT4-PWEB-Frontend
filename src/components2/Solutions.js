@@ -20,7 +20,7 @@ function Solutions({ id_s2 }) {
   }, []);
 
   return (
-    <div className="faq-list-s2">
+    <div className="solution">
       {symps.map((symp) => (
         <div key={symp.id_s2}>
           <Pdf file={"/pdf/" + symp.text} />{" "}

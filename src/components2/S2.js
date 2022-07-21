@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Solutions from "./Solutions";
 import UpdateComponent from "./Update.component";
-import CreateComponent from "./Create.component";
-import DeleteComponent from "./Delete.component";
+
 import Uploader from "./Uploader";
 import Deleter from "./Deleter";
 
@@ -46,28 +45,24 @@ function S2({ id_s1, admin }) {
     );
   } else {
     return (
-      <div className="faq-list-s2">
+      <div className="s2">
         {symps.map((symp) => (
-          <div key={symp.id_s2}>
+          <div className="main" key={symp.id_s2}>
             {symp.title_s2}
             <button
-              className="button"
+              className="flecheS1"
               value={symp.id_s2}
               onClick={(e) => choixPb(e)}
-            >
-              Choix
-            </button>
+            ></button>
             {admin && (
               <button
-                className="button"
+                className="ecrouS1"
                 value={symp.id_s2}
                 onClick={(e) => {
                   setisModify(!isModify);
                   setfocusedlist(e.target.value);
                 }}
-              >
-                Modifier
-              </button>
+              ></button>
             )}
             {isModify && focusedlist === `${symp.id_s2}` && (
               <div>
@@ -85,7 +80,6 @@ function S2({ id_s1, admin }) {
                   champ2={"ind_s2"}
                   base={"solutions"}
                 /> */}
-                <DeleteComponent id={symp.id_s2} base={"s2"} champ={"id_s2"} />
                 <Uploader id={symp.id_s2} />
                 <Deleter id={symp.id_s2} />
               </div>

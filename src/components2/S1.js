@@ -30,31 +30,27 @@ function S1({ id, admin }) {
   }
 
   return (
-    <div className="faq-list-s1">
+    <div className="s1">
       {symps.map((symp) => (
-        <div key={symp.id_s1}>
+        <div className="main3" key={symp.id_s1}>
           {symp.title_s1}
           <button
-            className="button"
+            className="flecheS1"
             value={symp.id_s1}
             onClick={(e) => choixPb(e)}
-          >
-            Choix
-          </button>
+          ></button>
           {admin && (
             <button
-              className="button"
+              className="ecrouS1"
               value={symp.id_s1}
               onClick={(e) => {
                 setisModify(!isModify);
                 setfocusedlist(e.target.value);
               }}
-            >
-              Modifier
-            </button>
+            ></button>
           )}
           {isModify && focusedlist === `${symp.id_s1}` && (
-            <div>
+            <div className="main_crud">
               <UpdateComponent
                 id={symp.id_s1}
                 title={symp.title_s1}

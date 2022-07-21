@@ -14,7 +14,12 @@ function Deleter({ id }) {
   };
   return (
     <div>
-      <input type="submit" value="Supprimer" onClick={handleSubmission} />
+      <input
+        className="delete"
+        type="submit"
+        value="Supprimer"
+        onClick={handleSubmission}
+      />
     </div>
   );
 }

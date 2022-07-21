@@ -38,15 +38,14 @@ export default class CreateComponent extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
-          Create Symptôme
-          <input
-            type="text"
-            value={this.state.value}
-            onChange={this.handleChange}
-          />
-        </label>
-        <input type="submit" value="Envoyer" />
+        <input
+          className="create"
+          type="text"
+          placeholder="Create"
+          value={this.state.value}
+          onChange={this.handleChange}
+        />
+        <input className="create-button" type="submit" value="Envoyer" />
       </form>
     );
   }

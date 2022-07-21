@@ -29,8 +29,13 @@ function Uploader({ id }) {
   return (
     <div>
       <form method="POST" action="#" id="#" onSubmit={handleSubmission}>
-        <input type="file" onChange={changeHandler} multiple="" />
-        <input type="submit" />
+        <input
+          className="add"
+          type="file"
+          onChange={changeHandler}
+          multiple=""
+        />
+        <input className="add" type="submit" />
       </form>
     </div>
   );

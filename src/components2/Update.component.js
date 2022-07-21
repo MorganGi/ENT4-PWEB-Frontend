@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import "../styles/DataFetching.css";
 
 export default class UpdateComponent extends React.Component {
   constructor(props) {
@@ -37,15 +38,14 @@ export default class UpdateComponent extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
-          Update Name
-          <input
-            type="text"
-            value={this.state.value}
-            onChange={this.handleChange}
-          />
-        </label>
-        <input type="submit" value="Envoyer" />
+        <input
+          className="update"
+          type="text"
+          placeholder="Update"
+          value={this.state.value}
+          onChange={this.handleChange}
+        />
+        <input className="update-button" type="submit" value="Envoyer" />
       </form>
     );
   }

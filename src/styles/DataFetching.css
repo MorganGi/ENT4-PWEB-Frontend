@@ -1,46 +1,143 @@
-.faq-list-pb{
-    padding: 40px;
-    width: auto;
- }
-
-.faq-item-pb{
-    padding: 25px;
-    width: auto;
-    border-bottom: solid 1px black;
+.faq-list-pb {
+  margin: 25px;
+  padding: 25px;
 }
 
-.faq-item-pb:hover{
-    border:5px solid rgb(214, 158, 36);
-    
+.mainpb {
+  display: flex;
+  align-items: flex-start;
+  padding-bottom: 25px;
+  padding-top: 25px;
+  border-bottom: 1px black solid;
 }
 
-.faq-list-s1{
-    color: black;
-    margin: 25px;
+.main {
+  display: flex;
+  align-items: flex-start;
+  padding-bottom: 25px;
 }
 
-.faq-list-s1:hover{
-    background-color: aliceblue;
+.main2 {
+  position: relative;
+  bottom: 17px;
+  max-width: 200px;
 }
 
-.faq-list-s2{
-    color: black;
-    margin: 25px;
+.main3 {
+  display: flex;
+  align-items: flex-start;
+  padding: 5px;
 }
 
-.faq-list-s2:hover{
-    background-color: beige;
+.s1 {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding-top: 15px;
 }
 
-.button{
-    padding: 10px;
-    margin-left: 20px;
-    border-radius: 20px;
+.s2 {
+  padding-top: 50px;
 }
 
-.faq_sol_text{
-    border: solid 1px black;
-    min-height: 400px;
-    padding: 10px;
-    max-width: 50%;
+.solution {
+}
+
+.fleche {
+  margin-top: 10px;
+  background: url("Aroow.png") no-repeat;
+  background-size: contain;
+  width: 40px;
+  height: 40px;
+  border: none;
+  /* background-color: transparent;
+  position: relative;
+  right: 100px;
+  width: 150px;
+  height: 50px;
+  border: none; */
+}
+
+.ecrou {
+  margin-top: 10px;
+  background: url("ecrou.jpg") no-repeat;
+  background-size: contain;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 25px;
+}
+
+.flecheS1 {
+  position: relative;
+  bottom: 10px;
+  background: url("Aroow.png") no-repeat;
+  background-size: contain;
+  width: 40px;
+  height: 40px;
+  border: none;
+}
+
+.ecrouS1 {
+  position: relative;
+  bottom: 10px;
+  background: url("ecrou.jpg") no-repeat;
+  background-size: contain;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 25px;
+}
+
+::placeholder {
+  color: white;
+  font-size: 1.5em;
+}
+
+.update {
+  background-color: rgb(76, 76, 236);
+  border: 1px rgb(108, 108, 143) solid;
+  border-radius: 5px;
+  color: white;
+  font-size: small;
+  max-width: 100px;
+}
+
+.update-button {
+  background-color: rgb(76, 76, 236);
+  border: 1px rgb(108, 108, 143) solid;
+  border-radius: 5px;
+  color: white;
+  font-size: small;
+}
+.create {
+  background-color: rgb(134, 192, 0);
+  border: 1px rgb(120, 243, 83) solid;
+  border-radius: 5px;
+  color: white;
+  font-size: small;
+  max-width: 100px;
+}
+
+.create-button {
+  background-color: rgb(134, 192, 0);
+  border: 1px rgb(120, 243, 83) solid;
+  border-radius: 5px;
+  color: white;
+  font-size: small;
+}
+
+.delete {
+  background-color: rgb(231, 128, 59);
+  border: 1px rgb(233, 60, 37) solid;
+  border-radius: 5px;
+  color: white;
+  font-size: small;
+}
+
+.add {
+  background-color: rgb(134, 192, 0);
+  border: 1px rgb(120, 243, 83) solid;
+  border-radius: 5px;
+  color: white;
+  font-size: small;
 }
