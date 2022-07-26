@@ -1,4 +1,4 @@
-.faq-list-pb {
+/* .faq-list-pb {
   margin: 25px;
   padding: 25px;
 }
@@ -39,9 +39,6 @@
   padding-top: 50px;
 }
 
-.solution {
-}
-
 .fleche {
   margin-top: 10px;
   background: url("Aroow.png") no-repeat;
@@ -49,12 +46,11 @@
   width: 40px;
   height: 40px;
   border: none;
-  /* background-color: transparent;
-  position: relative;
-  right: 100px;
-  width: 150px;
-  height: 50px;
-  border: none; */
+}
+
+.fleche:active {
+  background-color: rgb(123, 199, 235);
+  border-radius: 25px;
 }
 
 .ecrou {
@@ -75,6 +71,11 @@
   width: 40px;
   height: 40px;
   border: none;
+}
+
+.flecheS1:active {
+  background-color: rgb(123, 199, 235);
+  border-radius: 25px;
 }
 
 .ecrouS1 {
@@ -140,4 +141,128 @@
   border-radius: 5px;
   color: white;
   font-size: small;
+} */
+
+/* AMELIORATION */
+
+.faq-list-pb {
+  margin: 25px;
+  padding: 25px;
+}
+
+.mainpb {
+  padding-bottom: 25px;
+  padding-top: 25px;
+  border-bottom: 1px black solid;
+}
+.container-pb {
+  display: inline;
+}
+
+.container-pb .main_crud {
+  padding-top: 5px;
+  margin-left: 0%;
+}
+
+.container-s1 {
+  display: inline;
+  padding-left: 25%;
+}
+
+.container-s1 .main_crud {
+  padding-top: 5px;
+  margin-left: 25%;
+}
+
+.container-s2 {
+  display: inline;
+  padding-left: 50%;
+}
+
+.container-s2 .main_crud {
+  padding-top: 5px;
+  margin-left: 50%;
+}
+
+.fleche {
+  position: relative;
+  top: 10px;
+  background: url("Aroow.png") no-repeat;
+  background-size: contain;
+  width: 40px;
+  height: 40px;
+  border: none;
+}
+
+.fleche:active {
+  background-color: rgb(123, 199, 235);
+  border-radius: 25px;
+}
+
+.ecrou {
+  position: relative;
+  top: 10px;
+  background: url("ecrou.jpg") no-repeat;
+  background-size: contain;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 25px;
+}
+
+::placeholder {
+  color: white;
+  font-size: 1.5em;
+}
+
+.update {
+  background-color: rgb(76, 76, 236);
+  border: 1px rgb(108, 108, 143) solid;
+  border-radius: 5px;
+  color: white;
+  font-size: small;
+  max-width: 100px;
+}
+
+.update-button {
+  background-color: rgb(76, 76, 236);
+  border: 1px rgb(108, 108, 143) solid;
+  border-radius: 5px;
+  color: white;
+  font-size: small;
+}
+.create {
+  background-color: rgb(134, 192, 0);
+  border: 1px rgb(0, 0, 0) solid;
+  border-radius: 5px;
+  color: white;
+  font-size: small;
+  max-width: 100px;
+}
+
+.create-button {
+  background-color: rgb(134, 192, 0);
+  border: 1px rgb(120, 243, 83) solid;
+  border-radius: 5px;
+  color: white;
+  font-size: small;
+}
+
+.delete {
+  background-color: rgb(231, 128, 59);
+  border: 1px rgb(233, 60, 37) solid;
+  border-radius: 5px;
+  color: white;
+}
+
+.add {
+  background-color: rgb(134, 192, 0);
+  border: 1px rgb(120, 243, 83) solid;
+  border-radius: 5px;
+  color: white;
+  font-size: small;
+}
+
+.solution {
+  padding-top: 25px;
 }

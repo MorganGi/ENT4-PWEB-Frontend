@@ -41,7 +41,7 @@ export default class CreateComponent extends React.Component {
         <input
           className="create"
           type="text"
-          placeholder="Create"
+          placeholder="Create..."
           value={this.state.value}
           onChange={this.handleChange}
         />

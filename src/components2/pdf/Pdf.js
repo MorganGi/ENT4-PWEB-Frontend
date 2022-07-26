@@ -13,7 +13,7 @@ export default function Pdf({ file }) {
         <div
           style={{
             border: "1px solid rgba(0, 0, 0, 0.3)",
-            width: "950px",
+            width: "1172px",
           }}
         >
           <Viewer plugins={[defaultLayoutPluginInstance]} fileUrl={file} />

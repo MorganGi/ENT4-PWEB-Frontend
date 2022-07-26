@@ -9,13 +9,14 @@ export default class BoardUser extends Component {
       content: "",
     };
   }
+
   componentDidMount() {
     UserService.getUserBoard().then(
       (response) => {
-        console.log(response);
         this.setState({
           content: response.data,
         });
+        console.log(response.data);
       },
       (error) => {
         this.setState({
@@ -29,6 +30,7 @@ export default class BoardUser extends Component {
       }
     );
   }
+
   render() {
     return (
       <div className="container">

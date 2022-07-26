@@ -5,6 +5,7 @@ import S1 from "./S1";
 import UpdateComponent from "./Update.component";
 import CreateComponent from "./Create.component";
 import DeleteComponent from "./Delete.component";
+// import AuthService from "../services/auth.service";
 
 function DataFetching({ admin }) {
   const [isSet, setisSet] = useState(false);
@@ -33,8 +34,8 @@ function DataFetching({ admin }) {
       {posts.map(({ id, title_pb }) => (
         <div key={id} className="mainpb">
           {" "}
-          {title_pb}
-          <div className="main2">
+          <div className="container-pb">
+            {title_pb}
             <button
               className="fleche"
               value={id}
@@ -50,25 +51,25 @@ function DataFetching({ admin }) {
                 }}
               ></button>
             )}
+            {isModify && focusedlist === `${id}` && (
+              <div className="main_crud">
+                <UpdateComponent
+                  id={id}
+                  title={title_pb}
+                  base={"pb"}
+                  champ={"title_pb"}
+                />
+                <CreateComponent
+                  id={id}
+                  base={"s1"}
+                  champ={"title_s1"}
+                  champ2={"ind_pb"}
+                  title={title_pb}
+                />
+                <DeleteComponent id={id} base={"pb"} champ={"id"} />
+              </div>
+            )}
           </div>
-          {isModify && focusedlist === `${id}` && (
-            <div className="main_crud">
-              <UpdateComponent
-                id={id}
-                title={title_pb}
-                base={"pb"}
-                champ={"title_pb"}
-              />
-              <CreateComponent
-                id={id}
-                base={"s1"}
-                champ={"title_s1"}
-                champ2={"ind_pb"}
-                title={title_pb}
-              />
-              <DeleteComponent id={id} base={"pb"} champ={"id"} />
-            </div>
-          )}
           {isSet && focusedlist === `${id}` ? (
             <div className="choix-main">
               <S1 id={id} admin={admin} />
@@ -76,6 +77,13 @@ function DataFetching({ admin }) {
           ) : null}
         </div>
       ))}
+      <CreateComponent
+        id={"1"}
+        base={"pb"}
+        champ={"title_pb"}
+        champ2={"null"}
+        title={"a"}
+      />
     </div>
   );
 }

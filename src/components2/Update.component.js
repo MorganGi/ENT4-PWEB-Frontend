@@ -20,16 +20,14 @@ export default class UpdateComponent extends React.Component {
       this.state.value,
       this.props.base,
       this.props.title,
-      this.props.champ
+      this.props.champ,
+      this.props.id
     );
   }
 
-  updatee(e, db, title, champ) {
+  updatee(e, db, title, champ, id) {
     axios
-      .put(`http://localhost:8080/update/${db}&${title}&${e}&${champ}`)
-      .then((res) => {
-        console.log("PUTting : ", res.data);
-      })
+      .put(`http://localhost:8080/update/${db}&${title}&${e}&${id}&${champ}`)
       .catch((err) => {
         console.log(err);
       });

@@ -48,44 +48,46 @@ function S2({ id_s1, admin }) {
       <div className="s2">
         {symps.map((symp) => (
           <div className="main" key={symp.id_s2}>
-            {symp.title_s2}
-            <button
-              className="flecheS1"
-              value={symp.id_s2}
-              onClick={(e) => choixPb(e)}
-            ></button>
-            {admin && (
+            <div className="container-s2">
+              {symp.title_s2}
               <button
-                className="ecrouS1"
+                className="fleche"
                 value={symp.id_s2}
-                onClick={(e) => {
-                  setisModify(!isModify);
-                  setfocusedlist(e.target.value);
-                }}
+                onClick={(e) => choixPb(e)}
               ></button>
-            )}
-            {isModify && focusedlist === `${symp.id_s2}` && (
-              <div>
-                <UpdateComponent
-                  id={symp.id_s2}
-                  title={symp.title_s2}
-                  base={"s2"}
-                  champ={"title_s2"}
-                />
+              {admin && (
+                <button
+                  className="ecrou"
+                  value={symp.id_s2}
+                  onClick={(e) => {
+                    setisModify(!isModify);
+                    setfocusedlist(e.target.value);
+                  }}
+                ></button>
+              )}
+              {isModify && focusedlist === `${symp.id_s2}` && (
+                <div className="main_crud">
+                  <UpdateComponent
+                    id={symp.id_s2}
+                    title={symp.title_s2}
+                    base={"s2"}
+                    champ={"title_s2"}
+                  />
 
-                {/* <CreateComponent
+                  {/* <CreateComponent
                   id={symp.id_s2}
                   title={symp.text}
                   champ={"text"}
                   champ2={"ind_s2"}
                   base={"solutions"}
                 /> */}
-                <Uploader id={symp.id_s2} />
-                <Deleter id={symp.id_s2} />
-              </div>
-            )}
+                  <Uploader id={symp.id_s2} />
+                  <Deleter id={symp.id_s2} />
+                </div>
+              )}
+            </div>
             {isSet && focusedlist === `${symp.id_s2}` ? (
-              <div>
+              <div className="solution">
                 <Solutions id_s2={symp.id_s2} />
               </div>
             ) : null}

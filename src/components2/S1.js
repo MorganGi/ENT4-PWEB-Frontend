@@ -32,42 +32,44 @@ function S1({ id, admin }) {
   return (
     <div className="s1">
       {symps.map((symp) => (
-        <div className="main3" key={symp.id_s1}>
-          {symp.title_s1}
-          <button
-            className="flecheS1"
-            value={symp.id_s1}
-            onClick={(e) => choixPb(e)}
-          ></button>
-          {admin && (
+        <div className="" key={symp.id_s1}>
+          <div className="container-s1">
+            {symp.title_s1}
             <button
-              className="ecrouS1"
+              className="fleche"
               value={symp.id_s1}
-              onClick={(e) => {
-                setisModify(!isModify);
-                setfocusedlist(e.target.value);
-              }}
+              onClick={(e) => choixPb(e)}
             ></button>
-          )}
-          {isModify && focusedlist === `${symp.id_s1}` && (
-            <div className="main_crud">
-              <UpdateComponent
-                id={symp.id_s1}
-                title={symp.title_s1}
-                base={"s1"}
-                champ={"title_s1"}
-              />
+            {admin && (
+              <button
+                className="ecrou"
+                value={symp.id_s1}
+                onClick={(e) => {
+                  setisModify(!isModify);
+                  setfocusedlist(e.target.value);
+                }}
+              ></button>
+            )}
+            {isModify && focusedlist === `${symp.id_s1}` && (
+              <div className="main_crud">
+                <UpdateComponent
+                  id={symp.id_s1}
+                  title={symp.title_s1}
+                  base={"s1"}
+                  champ={"title_s1"}
+                />
 
-              <CreateComponent
-                id={symp.id_s1}
-                title={symp.title_s2}
-                champ={"title_s2"}
-                champ2={"ind_s1"}
-                base={"s2"}
-              />
-              <DeleteComponent id={symp.id_s1} base={"s1"} champ={"id_s1"} />
-            </div>
-          )}
+                <CreateComponent
+                  id={symp.id_s1}
+                  title={symp.title_s2}
+                  champ={"title_s2"}
+                  champ2={"ind_s1"}
+                  base={"s2"}
+                />
+                <DeleteComponent id={symp.id_s1} base={"s1"} champ={"id_s1"} />
+              </div>
+            )}
+          </div>
           {isSet && focusedlist === `${symp.id_s1}` ? (
             <div>
               <S2 id_s1={symp.id_s1} admin={admin} />
