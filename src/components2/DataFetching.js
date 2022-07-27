@@ -5,6 +5,7 @@ import S1 from "./S1";
 import UpdateComponent from "./Update.component";
 import CreateComponent from "./Create.component";
 import DeleteComponent from "./Delete.component";
+import Search from "./search/Search";
 // import AuthService from "../services/auth.service";
 
 function DataFetching({ admin }) {
@@ -84,6 +85,7 @@ function DataFetching({ admin }) {
         champ2={"null"}
         title={"a"}
       />
+      <Search />
     </div>
   );
 }
