@@ -32,6 +32,7 @@ function DataFetching({ admin }) {
 
   return (
     <div className="faq-list-pb">
+      <Search />
       {posts.map(({ id, title_pb }) => (
         <div key={id} className="mainpb">
           {" "}
@@ -78,14 +79,15 @@ function DataFetching({ admin }) {
           ) : null}
         </div>
       ))}
-      <CreateComponent
-        id={"1"}
-        base={"pb"}
-        champ={"title_pb"}
-        champ2={"null"}
-        title={"a"}
-      />
-      <Search />
+      {admin && (
+        <CreateComponent
+          id={"1"}
+          base={"pb"}
+          champ={"title_pb"}
+          champ2={"null"}
+          title={"a"}
+        />
+      )}
     </div>
   );
 }

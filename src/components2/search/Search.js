@@ -1,27 +1,36 @@
 import axios from "axios";
 import React, { useState } from "react";
+import Pdf from "../pdf/Pdf";
 
 function Search() {
   const [searched, setSearched] = useState("");
-  const [text, setText] = useState([]);
-  const [ok, setOk] = useState(false);
+  const [texts, setText] = useState([]);
+  const [focusedlist, setfocusedlist] = useState();
+  const [isModify, setisModify] = useState(false);
+  const [defaulte, setDefaulte] = useState("");
 
   const handleSubmission = (e) => {
     e.preventDefault();
-
-    axios.get("http://localhost:8080/extract-text").then((res) => {
-      console.log(res);
-      const newText = res.data;
-      setText([...text, newText]);
-      setOk(!ok);
-    });
+    if (searched !== "") {
+      axios
+        .get(`http://localhost:8080/extract-text/${searched}`)
+        .then((res) => {
+          console.log(res);
+          if (res.data.length === 0) {
+            setDefaulte("Aucun article trouvé...");
+          } else {
+            setDefaulte("");
+            setText(res.data);
+          }
+        });
+    } else {
+      setDefaulte("Recherche vide.");
+    }
   };
 
-  // const onSearch = () => {
-  //   for (let i = 0; i < text.length; i++) {
-  //     console.log("bb");
-  //   }
-  // };
+  const recherche = (e) => {
+    setSearched(e.target.value);
+  };
 
   return (
     <div>
@@ -29,19 +38,35 @@ function Search() {
         <input
           type="text"
           placeholder="Search..."
-          onChange={(e) => setSearched(e.target.value)}
+          onChange={(e) => recherche(e)}
         />
-        <input className="add" type="submit" />
+        <input className="" type="submit" />
       </form>
 
-      <p>
-        {ok &&
-          text[0].map((tex, i) => (
-            <div>
-              <li key={i}>{tex}</li>;
-            </div>
-          ))}
-      </p>
+      {!defaulte ? (
+        texts.map((post, i) => (
+          <div key={i}>
+            <h1>{post.titre}</h1> {post.text}
+            <br />
+            <button
+              value={i}
+              onClick={(e) => {
+                setisModify(!isModify);
+                setfocusedlist(e.target.value);
+              }}
+            >
+              Voir cet article
+            </button>
+            {isModify && focusedlist === `${i}` && (
+              <div>
+                <Pdf file={"/pdf/" + post.titre} />{" "}
+              </div>
+            )}
+          </div>
+        ))
+      ) : (
+        <div>{defaulte}</div>
+      )}
     </div>
   );
 }
