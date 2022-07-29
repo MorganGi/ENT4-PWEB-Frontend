@@ -13,6 +13,7 @@ function DataFetching({ admin }) {
   const [focusedlist, setfocusedlist] = useState();
   const [posts, setPosts] = useState([]);
   const [isModify, setisModify] = useState(false);
+  const [a, setA] = useState([]);
 
   useEffect(() => {
     axios
@@ -25,15 +26,22 @@ function DataFetching({ admin }) {
       });
   }, []);
 
-  function choixPb(e) {
+  function choixPb(e, i) {
     setisSet(!isSet);
     setfocusedlist(e.target.value);
+    const newA = a;
+    if (newA[i] === e.target.value) {
+      newA[i] = 0;
+    } else {
+      newA[i] = e.target.value;
+      setA(newA);
+    }
   }
 
   return (
     <div className="faq-list-pb">
       <Search />
-      {posts.map(({ id, title_pb }) => (
+      {posts.map(({ id, title_pb }, i) => (
         <div key={id} className="mainpb">
           {" "}
           <div className="container-pb">
@@ -41,7 +49,7 @@ function DataFetching({ admin }) {
             <button
               className="fleche"
               value={id}
-              onClick={(e) => choixPb(e)}
+              onClick={(e) => choixPb(e, i)}
             ></button>
             {admin && (
               <button
@@ -72,7 +80,7 @@ function DataFetching({ admin }) {
               </div>
             )}
           </div>
-          {isSet && focusedlist === `${id}` ? (
+          {a[i] === `${id}` ? (
             <div className="choix-main">
               <S1 id={id} admin={admin} />
             </div>

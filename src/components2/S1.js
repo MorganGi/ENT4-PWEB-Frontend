@@ -11,6 +11,7 @@ function S1({ id, admin }) {
   const [symps, setSymp] = useState([]);
   const uri = `http://localhost:8080/s1/${id}`;
   const [isModify, setisModify] = useState(false);
+  const [a, setA] = useState([]);
 
   useEffect(() => {
     axios
@@ -24,21 +25,28 @@ function S1({ id, admin }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  function choixPb(e) {
+  function choixPb(e, i) {
     setisSet(!isSet);
     setfocusedlist(e.target.value);
+    const newA = a;
+    if (newA[i] === e.target.value) {
+      newA[i] = 0;
+    } else {
+      newA[i] = e.target.value;
+      setA(newA);
+    }
   }
 
   return (
     <div className="s1">
-      {symps.map((symp) => (
+      {symps.map((symp, i) => (
         <div className="" key={symp.id_s1}>
           <div className="container-s1">
             {symp.title_s1}
             <button
               className="fleche"
               value={symp.id_s1}
-              onClick={(e) => choixPb(e)}
+              onClick={(e) => choixPb(e, i)}
             ></button>
             {admin && (
               <button
@@ -70,7 +78,7 @@ function S1({ id, admin }) {
               </div>
             )}
           </div>
-          {isSet && focusedlist === `${symp.id_s1}` ? (
+          {a[i] === `${symp.id_s1}` ? (
             <div>
               <S2 id_s1={symp.id_s1} admin={admin} />
             </div>
