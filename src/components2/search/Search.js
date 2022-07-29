@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
 import Pdf from "../pdf/Pdf";
+import "./searche.css";
+import SearchIcon from "@mui/icons-material/Search";
 
-function Search() {
+function Searche() {
   const [searched, setSearched] = useState("");
   const [texts, setText] = useState([]);
   const [focusedlist, setfocusedlist] = useState();
@@ -33,20 +35,27 @@ function Search() {
   };
 
   return (
-    <div>
-      <form method="POST" action="#" id="#" onSubmit={handleSubmission}>
-        <input
-          type="text"
-          placeholder="Search..."
-          onChange={(e) => recherche(e)}
-        />
-        <input className="" type="submit" />
-      </form>
+    <div className="mainDiv-search">
+      <div className="formSearch">
+        <form method="POST" onSubmit={handleSubmission}>
+          <div className="search-box">
+            <button className="btn-search">
+              <i className="fasfa-search"></i>
+            </button>
+            <input
+              type="text"
+              className="input-search"
+              placeholder="Type to Search..."
+              onChange={(e) => recherche(e)}
+            />
+          </div>
+        </form>
+      </div>
 
       {!defaulte ? (
         texts.map((post, i) => (
-          <div key={i}>
-            <h1>{post.titre}</h1> {post.text}
+          <div key={i} className="res-of-search">
+            <h3>{post.titre}</h3> {post.text}
             <br />
             <button
               value={i}
@@ -58,16 +67,16 @@ function Search() {
               Voir cet article
             </button>
             {isModify && focusedlist === `${i}` && (
-              <div>
+              <div className="position-pdf">
                 <Pdf file={"/pdf/" + post.titre} />{" "}
               </div>
             )}
           </div>
         ))
       ) : (
-        <div>{defaulte}</div>
+        <div className="res-of-search">{defaulte}</div>
       )}
     </div>
   );
 }
-export default Search;
+export default Searche;

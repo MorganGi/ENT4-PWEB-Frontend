@@ -36,14 +36,18 @@ export default class UpdateComponent extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input
-          className="update"
-          type="text"
-          placeholder="Update"
-          value={this.state.value}
-          onChange={this.handleChange}
-        />
-        <input className="update-button" type="submit" value="Envoyer" />
+        <div className="search-box">
+          <button className="btn-search-update">
+            <i className="fasfa-search"></i>
+          </button>
+          <input
+            type="text"
+            className="input-search"
+            placeholder="Update"
+            value={this.state.value}
+            onChange={this.handleChange}
+          />
+        </div>
       </form>
     );
   }

@@ -30,7 +30,12 @@ export default class DeleteComponent extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input className="delete" type="submit" value="Delete" />
+        <div className="search-box">
+          <button className="btn-search-delete">
+            <i className="fasfa-search"></i>
+          </button>
+          <input type="submit" className="input-search" value="Supprimer" />
+        </div>
       </form>
     );
   }

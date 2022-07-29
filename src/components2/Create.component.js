@@ -38,14 +38,18 @@ export default class CreateComponent extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input
-          className="create"
-          type="text"
-          placeholder="Create..."
-          value={this.state.value}
-          onChange={this.handleChange}
-        />
-        <input className="create-button" type="submit" value="Envoyer" />
+        <div className="search-box">
+          <button className="btn-search-create">
+            <i className="fasfa-search"></i>
+          </button>
+          <input
+            type="text"
+            className="input-search"
+            placeholder="Create"
+            value={this.state.value}
+            onChange={this.handleChange}
+          />
+        </div>
       </form>
     );
   }

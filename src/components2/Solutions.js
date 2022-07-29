@@ -22,7 +22,7 @@ function Solutions({ id_s2 }) {
   return (
     <div className="solution">
       {symps.map((symp) => (
-        <div key={symp.id_s2}>
+        <div className="position-pdf" key={symp.id_s2}>
           <Pdf file={"/pdf/" + symp.text} />{" "}
         </div>
       ))}

@@ -5,7 +5,7 @@ import S1 from "./S1";
 import UpdateComponent from "./Update.component";
 import CreateComponent from "./Create.component";
 import DeleteComponent from "./Delete.component";
-import Search from "./search/Search";
+import Searche from "./search/Search";
 // import AuthService from "../services/auth.service";
 
 function DataFetching({ admin }) {
@@ -40,7 +40,7 @@ function DataFetching({ admin }) {
 
   return (
     <div className="faq-list-pb">
-      <Search />
+      <Searche />
       {posts.map(({ id, title_pb }, i) => (
         <div key={id} className="mainpb">
           {" "}

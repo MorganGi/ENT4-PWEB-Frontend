@@ -9,12 +9,17 @@ function Deleter({ id }) {
   };
   return (
     <div>
-      <input
-        className="delete"
-        type="submit"
-        value="Supprimer"
-        onClick={handleSubmission}
-      />
+      <div className="search-box">
+        <button className="btn-search-delete">
+          <i className="fasfa-search"></i>
+        </button>
+        <input
+          type="submit"
+          className="input-search"
+          value="Supprimer"
+          onClick={handleSubmission}
+        />
+      </div>
     </div>
   );
 }

@@ -1,18 +1,22 @@
 .faq-list-pb {
-  margin: 25px;
-  padding: 25px;
+  margin: 5px;
+  padding: 0px;
+  width: 50%;
 }
 
 .mainpb {
   padding-bottom: 25px;
-  padding-top: 25px;
+  margin-top: 25px;
   border-bottom: 1px black solid;
+  margin-left: 16px;
 }
 .container-pb {
   display: inline;
 }
 
 .container-pb .main_crud {
+  display: flex;
+  flex-wrap: wrap;
   padding-top: 5px;
   margin-left: 0%;
 }
@@ -23,6 +27,8 @@
 }
 
 .container-s1 .main_crud {
+  display: flex;
+  flex-wrap: wrap;
   padding-top: 5px;
   margin-left: 25%;
 }
@@ -33,6 +39,8 @@
 }
 
 .container-s2 .main_crud {
+  display: flex;
+  flex-wrap: wrap;
   padding-top: 5px;
   margin-left: 50%;
 }
@@ -109,13 +117,19 @@
 }
 
 .add {
-  background-color: rgb(134, 192, 0);
-  border: 1px rgb(120, 243, 83) solid;
   border-radius: 5px;
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: small;
 }
 
 .solution {
   padding-top: 25px;
+}
+
+.position-pdf {
+  position: absolute;
+  top: 66px;
+  left: 52%;
+  right: 5px;
+  bottom: 10px;
 }

@@ -16,13 +16,23 @@ function S2({ id_s1, admin }) {
   const uri = `http://localhost:8080/s2/${id_s1}`;
 
   function choixPb(e, i) {
+    console.log("index : ", i);
     setisSet(!isSet);
     setfocusedlist(e.target.value);
     const newA = a;
     if (newA[i] === e.target.value) {
       newA[i] = 0;
     } else {
+      console.log(newA.length);
       newA[i] = e.target.value;
+      for (let j = 0; j < newA.length; j++) {
+        if (i === j) {
+          console.log("i=j", i, j);
+        } else {
+          newA[j] = 0;
+        }
+      }
+      console.log(newA);
       setA(newA);
     }
   }
@@ -81,14 +91,6 @@ function S2({ id_s1, admin }) {
                     base={"s2"}
                     champ={"title_s2"}
                   />
-
-                  {/* <CreateComponent
-                  id={symp.id_s2}
-                  title={symp.text}
-                  champ={"text"}
-                  champ2={"ind_s2"}
-                  base={"solutions"}
-                /> */}
                   <Uploader id={symp.id_s2} />
                   <Deleter id={symp.id_s2} />
                 </div>
