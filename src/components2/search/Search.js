@@ -2,14 +2,38 @@ import axios from "axios";
 import React, { useState } from "react";
 import Pdf from "../pdf/Pdf";
 import "./searche.css";
-import SearchIcon from "@mui/icons-material/Search";
 
 function Searche() {
   const [searched, setSearched] = useState("");
   const [texts, setText] = useState([]);
   const [focusedlist, setfocusedlist] = useState();
-  const [isModify, setisModify] = useState(false);
   const [defaulte, setDefaulte] = useState("");
+
+  const [a, setA] = useState([]);
+  const [isModify, setisModify] = useState(false);
+
+  function choixPb(e, i) {
+    console.log("index : ", i);
+    setfocusedlist(e.target.value);
+    const newA = a;
+    if (newA[i] === e.target.value) {
+      newA[i] = 0;
+      setisModify(false);
+    } else {
+      setisModify(true);
+      console.log(newA.length);
+      newA[i] = e.target.value;
+      for (let j = 0; j < newA.length; j++) {
+        if (i === j) {
+          console.log("i=j", i, j);
+        } else {
+          newA[j] = 0;
+        }
+      }
+      console.log(newA);
+      setA(newA);
+    }
+  }
 
   const handleSubmission = (e) => {
     e.preventDefault();
@@ -45,7 +69,7 @@ function Searche() {
             <input
               type="text"
               className="input-search"
-              placeholder="Type to Search..."
+              placeholder="Recherche"
               onChange={(e) => recherche(e)}
             />
           </div>
@@ -58,15 +82,13 @@ function Searche() {
             <h3>{post.titre}</h3> {post.text}
             <br />
             <button
+              className="button-article"
               value={i}
-              onClick={(e) => {
-                setisModify(!isModify);
-                setfocusedlist(e.target.value);
-              }}
+              onClick={(e) => choixPb(e, i)}
             >
               Voir cet article
             </button>
-            {isModify && focusedlist === `${i}` && (
+            {isModify && a[i] === `${i}` && (
               <div className="position-pdf">
                 <Pdf file={"/pdf/" + post.titre} />{" "}
               </div>

@@ -6,6 +6,7 @@ function Deleter({ id }) {
     axios.get(`http://localhost:8080/solutions/del/${id}`).catch((e) => {
       console.error("Error", e);
     });
+    alert("Delete");
   };
   return (
     <div>
@@ -16,7 +17,7 @@ function Deleter({ id }) {
         <input
           type="submit"
           className="input-search"
-          value="Supprimer"
+          value="Supprimer PDF"
           onClick={handleSubmission}
         />
       </div>

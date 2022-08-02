@@ -22,13 +22,14 @@ export default class CreateComponent extends React.Component {
       this.props.champ,
       this.props.champ2
     );
+    alert("Created");
   }
 
   updatee(e, db, id, champ, champ2) {
     axios
       .put(`http://localhost:8080/create/${db}&${id}&${e}&${champ}&${champ2}`)
       .then((res) => {
-        console.log("PUTting : ", res.data);
+        console.log("put : ", res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -45,7 +46,7 @@ export default class CreateComponent extends React.Component {
           <input
             type="text"
             className="input-search"
-            placeholder="Create"
+            placeholder="Créer"
             value={this.state.value}
             onChange={this.handleChange}
           />

@@ -5,7 +5,7 @@ import "../styles/DataFetching.css";
 export default class UpdateComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: "" };
+    this.state = { value: this.props.title };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -23,6 +23,8 @@ export default class UpdateComponent extends React.Component {
       this.props.champ,
       this.props.id
     );
+    alert("Updated");
+    window.location.reload(false);
   }
 
   updatee(e, db, title, champ, id) {
@@ -43,7 +45,7 @@ export default class UpdateComponent extends React.Component {
           <input
             type="text"
             className="input-search"
-            placeholder="Update"
+            placeholder="Mise à jour"
             value={this.state.value}
             onChange={this.handleChange}
           />

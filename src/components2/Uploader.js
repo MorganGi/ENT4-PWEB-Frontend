@@ -3,6 +3,7 @@ import axios from "axios";
 
 function Uploader({ id }) {
   const [selectedFile, setSelectedFile] = useState();
+  const [message, setMessage] = useState("");
 
   function changeHandler(event) {
     setSelectedFile(event.target.files[0]);
@@ -10,15 +11,26 @@ function Uploader({ id }) {
 
   function handleSubmission(e) {
     e.preventDefault();
-    // console.log(selectedFile.name);
-    const formData = new FormData();
-    formData.append("file", selectedFile);
+    const maxsize = 500 * 1024;
 
-    axios
-      .post(`http://localhost:8080/upload-avatar/${id}`, formData)
-      .catch((e) => {
-        console.error("Error-UPDATER", e);
-      });
+    const size = selectedFile.size;
+    console.log(size);
+
+    if (size < maxsize) {
+      const formData = new FormData();
+      formData.append("file", selectedFile);
+
+      axios
+        .post(`http://localhost:8080/upload-avatar/${id}`, formData)
+        .catch((e) => {
+          console.error("Error-UPDATER", e);
+        });
+      setMessage("");
+    } else {
+      setMessage(
+        "Fichier trop volumineux, Taille max : " + maxsize / 1024 + " KBits"
+      );
+    }
   }
 
   return (
@@ -32,6 +44,7 @@ function Uploader({ id }) {
         />
         <input className="add" type="submit" />
       </form>
+      {message && <div className="file-size">{message}</div>}
     </div>
   );
 }

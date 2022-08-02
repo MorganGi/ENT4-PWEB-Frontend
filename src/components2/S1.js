@@ -74,7 +74,12 @@ function S1({ id, admin }) {
                   champ2={"ind_s1"}
                   base={"s2"}
                 />
-                <DeleteComponent id={symp.id_s1} base={"s1"} champ={"id_s1"} />
+                <DeleteComponent
+                  id={symp.id_s1}
+                  base={"s1"}
+                  champ={"id_s1"}
+                  name={symp.title_s1}
+                />
               </div>
             )}
           </div>

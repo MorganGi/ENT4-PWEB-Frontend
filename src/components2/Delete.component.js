@@ -13,14 +13,25 @@ export default class DeleteComponent extends React.Component {
   }
 
   updatee(id, db, champ) {
-    axios
-      .put(`http://localhost:8080/delete/${id}&${db}&${champ}`)
-      .then((res) => {
-        console.log("PUTting : ", res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const answer = window.confirm(
+      "Etes-vous sur de vouloir supprimer : " + this.props.name
+    );
+    if (answer) {
+      // Save it!
+      console.log("Thing was saved to the database.");
+
+      axios
+        .put(`http://localhost:8080/delete/${id}&${db}&${champ}`)
+        .then((res) => {
+          console.log("PUTting : ", res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      window.location.reload(false);
+    } else {
+      console.log("Thing was not saved to the database.");
+    }
   }
 
   butDelete(e) {

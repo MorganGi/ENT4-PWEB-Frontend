@@ -1,14 +1,33 @@
+.master {
+  display: flex;
+}
 .faq-list-pb {
   margin: 5px;
   padding: 0px;
   width: 50%;
 }
 
+.faq-list-pb2 {
+  float: left;
+  margin: 15px 5px 0px 20px;
+  border-radius: 10px;
+}
+
+.logopdf {
+  margin: 75px 0px 0px 0px;
+  padding: 0px 0px 0px 25%;
+  width: 100%;
+}
+
 .mainpb {
+  padding-left: 20px;
   padding-bottom: 25px;
   margin-top: 25px;
   border-bottom: 1px black solid;
   margin-left: 16px;
+  background-color: rgb(255, 121, 10);
+  border-radius: 15px;
+  box-shadow: 10px 5px 5px rgb(167, 167, 167);
 }
 .container-pb {
   display: inline;
@@ -63,7 +82,7 @@
 .ecrou {
   position: relative;
   top: 10px;
-  background: url("ecrou.jpg") no-repeat;
+  background: url("ecrou.png") no-repeat;
   background-size: contain;
   width: 40px;
   height: 40px;
@@ -128,8 +147,21 @@
 
 .position-pdf {
   position: absolute;
-  top: 66px;
+  top: 104px;
   left: 52%;
   right: 5px;
   bottom: 10px;
+}
+
+.main-create {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.file-size {
+  color: red;
+  background-color: white;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid black;
 }
