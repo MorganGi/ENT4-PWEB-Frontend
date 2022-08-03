@@ -22,7 +22,7 @@ export default class CreateComponent extends React.Component {
       this.props.champ,
       this.props.champ2
     );
-    alert("Created");
+    window.location.reload(false);
   }
 
   updatee(e, db, id, champ, champ2) {

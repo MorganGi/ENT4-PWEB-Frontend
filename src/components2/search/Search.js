@@ -13,7 +13,6 @@ function Searche() {
   const [isModify, setisModify] = useState(false);
 
   function choixPb(e, i) {
-    console.log("index : ", i);
     setfocusedlist(e.target.value);
     const newA = a;
     if (newA[i] === e.target.value) {
@@ -25,7 +24,7 @@ function Searche() {
       newA[i] = e.target.value;
       for (let j = 0; j < newA.length; j++) {
         if (i === j) {
-          console.log("i=j", i, j);
+          console.log("");
         } else {
           newA[j] = 0;
         }
@@ -41,7 +40,7 @@ function Searche() {
       axios
         .get(`http://localhost:8080/extract-text/${searched}`)
         .then((res) => {
-          console.log(res);
+          console.log(res.data);
           if (res.data.length === 0) {
             setDefaulte("Aucun article trouvé...");
           } else {
@@ -77,9 +76,12 @@ function Searche() {
       </div>
 
       {!defaulte ? (
-        texts.map((post, i) => (
+        texts.map(({ text, titre, titredoc }, i) => (
           <div key={i} className="res-of-search">
-            <h3>{post.titre}</h3> {post.text}
+            <h3>{titredoc}</h3>{" "}
+            {text.split("AAA").map((res, i) => (
+              <li key={i}>{res}</li>
+            ))}
             <br />
             <button
               className="button-article"
@@ -90,7 +92,7 @@ function Searche() {
             </button>
             {isModify && a[i] === `${i}` && (
               <div className="position-pdf">
-                <Pdf file={"/pdf/" + post.titre} />{" "}
+                <Pdf file={"/pdf/" + titre} />{" "}
               </div>
             )}
           </div>

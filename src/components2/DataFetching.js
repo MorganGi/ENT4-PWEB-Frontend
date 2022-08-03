@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../styles/DataFetching.css";
-import logo from "../styles/pdf.png";
 import S1 from "./S1";
 import UpdateComponent from "./Update.component";
 import CreateComponent from "./Create.component";
@@ -44,17 +43,19 @@ function DataFetching({ admin }) {
       <div className="faq-list-pb">
         <Searche />
         {posts.map(({ id, title_pb }, i) => (
-          <div key={id} className="mainpb">
+          <div key={id + "div"} className="mainpb">
             {" "}
-            <div className="container-pb">
+            <div key={id + "div2"} className="container-pb">
               {title_pb}
               <button
+                key={id + "button"}
                 className="fleche"
                 value={id}
                 onClick={(e) => choixPb(e, i)}
               ></button>
               {admin && (
                 <button
+                  key={id + "button2"}
                   className="ecrou"
                   value={id}
                   onClick={(e) => {
@@ -64,7 +65,7 @@ function DataFetching({ admin }) {
                 ></button>
               )}
               {isModify && focusedlist === `${id}` && (
-                <div className="main_crud">
+                <div key={id + "divModify"} className="main_crud">
                   <UpdateComponent
                     id={id}
                     title={title_pb}
@@ -88,14 +89,14 @@ function DataFetching({ admin }) {
               )}
             </div>
             {a[i] === `${id}` ? (
-              <div className="choix-main">
+              <div key={id + "divs1"} className="choix-main">
                 <S1 id={id} admin={admin} />
               </div>
             ) : null}
           </div>
         ))}
         {admin && (
-          <div className="main-create">
+          <div key={"div"} className="main-create">
             <CreateComponent
               id={"1"}
               base={"pb"}
@@ -106,7 +107,7 @@ function DataFetching({ admin }) {
           </div>
         )}
       </div>
-      <div className="faq-list-pb2"></div>
+      <div key={"div3"} className="faq-list-pb2"></div>
     </div>
   );
 }

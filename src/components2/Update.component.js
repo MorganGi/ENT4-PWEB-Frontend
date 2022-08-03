@@ -23,7 +23,6 @@ export default class UpdateComponent extends React.Component {
       this.props.champ,
       this.props.id
     );
-    alert("Updated");
     window.location.reload(false);
   }
 

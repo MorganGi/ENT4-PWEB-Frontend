@@ -5,6 +5,7 @@ import UpdateComponent from "./Update.component";
 
 import Uploader from "./Uploader";
 import Deleter from "./Deleter";
+import DeleteComponent from "./Delete.component";
 
 function S2({ id_s1, admin }) {
   const [symps, setSymp] = useState([]);
@@ -16,23 +17,20 @@ function S2({ id_s1, admin }) {
   const uri = `http://localhost:8080/s2/${id_s1}`;
 
   function choixPb(e, i) {
-    console.log("index : ", i);
     setisSet(!isSet);
     setfocusedlist(e.target.value);
     const newA = a;
     if (newA[i] === e.target.value) {
       newA[i] = 0;
     } else {
-      console.log(newA.length);
       newA[i] = e.target.value;
       for (let j = 0; j < newA.length; j++) {
         if (i === j) {
-          console.log("i=j", i, j);
+          break;
         } else {
           newA[j] = 0;
         }
       }
-      console.log(newA);
       setA(newA);
     }
   }
@@ -91,8 +89,14 @@ function S2({ id_s1, admin }) {
                     base={"s2"}
                     champ={"title_s2"}
                   />
-                  <Uploader id={symp.id_s2} />
-                  <Deleter id={symp.id_s2} />
+                  <DeleteComponent
+                    id={symp.id_s2}
+                    base={"s2"}
+                    champ={"id_s2"}
+                    name={symp.title_s2}
+                  />
+                  <Uploader id={symp.id_s2} from="s2" />
+                  <Deleter id={symp.id_s2} from="s2" />
                 </div>
               )}
             </div>

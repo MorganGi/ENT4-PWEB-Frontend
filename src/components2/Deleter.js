@@ -1,12 +1,13 @@
 import React from "react";
 import axios from "axios";
 
-function Deleter({ id }) {
+function Deleter({ id, from }) {
   const handleSubmission = (e) => {
-    axios.get(`http://localhost:8080/solutions/del/${id}`).catch((e) => {
-      console.error("Error", e);
-    });
-    alert("Delete");
+    axios
+      .get(`http://localhost:8080/solutions/del/${id}&${from}`)
+      .catch((e) => {
+        console.error("Error", e);
+      });
   };
   return (
     <div>

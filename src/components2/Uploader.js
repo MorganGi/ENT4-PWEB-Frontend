@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-function Uploader({ id }) {
+function Uploader({ id, from }) {
   const [selectedFile, setSelectedFile] = useState();
   const [message, setMessage] = useState("");
 
@@ -11,7 +11,7 @@ function Uploader({ id }) {
 
   function handleSubmission(e) {
     e.preventDefault();
-    const maxsize = 500 * 1024;
+    const maxsize = 700 * 1024 * 1024;
 
     const size = selectedFile.size;
     console.log(size);
@@ -21,7 +21,7 @@ function Uploader({ id }) {
       formData.append("file", selectedFile);
 
       axios
-        .post(`http://localhost:8080/upload-avatar/${id}`, formData)
+        .post(`http://localhost:8080/upload-avatar/${id}&${from}`, formData)
         .catch((e) => {
           console.error("Error-UPDATER", e);
         });

@@ -30,7 +30,7 @@ export default class DeleteComponent extends React.Component {
         });
       window.location.reload(false);
     } else {
-      console.log("Thing was not saved to the database.");
+      console.log("Catégorie non supprimée.");
     }
   }
 
@@ -45,7 +45,11 @@ export default class DeleteComponent extends React.Component {
           <button className="btn-search-delete">
             <i className="fasfa-search"></i>
           </button>
-          <input type="submit" className="input-search" value="Supprimer" />
+          <input
+            type="submit"
+            className="input-search"
+            value="Supprimer categorie"
+          />
         </div>
       </form>
     );

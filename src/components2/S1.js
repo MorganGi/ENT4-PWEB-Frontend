@@ -4,14 +4,19 @@ import S2 from "./S2";
 import UpdateComponent from "./Update.component";
 import CreateComponent from "./Create.component";
 import DeleteComponent from "./Delete.component";
+import Pdf from "./pdf/Pdf";
+import Uploader from "./Uploader";
+import Deleter from "./Deleter";
 
 function S1({ id, admin }) {
   const [isSet, setisSet] = useState(false);
   const [focusedlist, setfocusedlist] = useState();
   const [symps, setSymp] = useState([]);
-  const uri = `http://localhost:8080/s1/${id}`;
+  const [symps2, setSymp2] = useState([]);
+  const [solution, setSolution] = useState(false);
   const [isModify, setisModify] = useState(false);
   const [a, setA] = useState([]);
+  const uri = `http://localhost:8080/s1/${id}`;
 
   useEffect(() => {
     axios
@@ -24,6 +29,22 @@ function S1({ id, admin }) {
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  function x(id_s1) {
+    axios
+      .get(`http://localhost:8080/solutionsbis/${id_s1}`)
+      .then((res) => {
+        if (res.data[0]) {
+          setSolution(false);
+          setSymp2(res.data);
+        } else {
+          setSolution(true);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   function choixPb(e, i) {
     setisSet(!isSet);
@@ -46,7 +67,10 @@ function S1({ id, admin }) {
             <button
               className="fleche"
               value={symp.id_s1}
-              onClick={(e) => choixPb(e, i)}
+              onClick={(e) => {
+                choixPb(e, i);
+                x(symp.id_s1);
+              }}
             ></button>
             {admin && (
               <button
@@ -55,6 +79,7 @@ function S1({ id, admin }) {
                 onClick={(e) => {
                   setisModify(!isModify);
                   setfocusedlist(e.target.value);
+                  x(symp.id_s1);
                 }}
               ></button>
             )}
@@ -80,13 +105,29 @@ function S1({ id, admin }) {
                   champ={"id_s1"}
                   name={symp.title_s1}
                 />
+
+                {solution ? (
+                  <Uploader id={symp.id_s1} from="s1" />
+                ) : (
+                  <Deleter id={symp.id_s1} from="s1" />
+                )}
               </div>
             )}
           </div>
           {a[i] === `${symp.id_s1}` ? (
-            <div>
-              <S2 id_s1={symp.id_s1} admin={admin} />
-            </div>
+            !solution ? (
+              <div className="solution">
+                {symps2.map((symp) => (
+                  <div className="position-pdf" key={symp.id_s1}>
+                    <Pdf file={"/pdf/" + symp.text} />{" "}
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div>
+                <S2 id_s1={symp.id_s1} admin={admin} />
+              </div>
+            )
           ) : null}
         </div>
       ))}
