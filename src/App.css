@@ -28,6 +28,10 @@ label {
   border-radius: 50%;
 }
 /* START  */
+body {
+  background-color: #ffefdb;
+}
+
 .navbar-main {
   overflow: hidden;
   background-color: rgb(255, 121, 10);
