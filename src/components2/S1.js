@@ -34,10 +34,13 @@ function S1({ id, admin }) {
     axios
       .get(`http://localhost:8080/solutionsbis/${id_s1}`)
       .then((res) => {
+        // console.log(res);
         if (res.data[0]) {
+          // console.log("OO");
           setSolution(false);
           setSymp2(res.data);
         } else {
+          // console.log("IN");
           setSolution(true);
         }
       })

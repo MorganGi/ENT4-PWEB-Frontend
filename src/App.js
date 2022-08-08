@@ -102,8 +102,13 @@ class App extends Component {
                   </Link>
                 </li>
                 <li className="navbar-item">
-                  <Link to={"/faq"} className="navbar-link">
-                    FAQ
+                  <Link to={"/faq-xivo"} className="navbar-link">
+                    FAQ XIVO
+                  </Link>
+                </li>
+                <li className="navbar-item">
+                  <Link to={"/faq-cebox"} className="navbar-link">
+                    FAQ CEBOX
                   </Link>
                 </li>
               </div>
@@ -119,7 +124,8 @@ class App extends Component {
           <Route path="/user" component={BoardUser} />
           <Route path="/mod" component={BoardModerator} />
           <Route path="/admin" component={BoardAdmin} />
-          <Route path="/faq" component={DataFetching} />
+          <Route path="/faq-xivo" component={DataFetching} />
+          <Route path="/faq-cebox" />
         </Switch>
       </div>
     );

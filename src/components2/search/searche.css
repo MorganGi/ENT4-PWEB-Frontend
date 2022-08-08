@@ -25,7 +25,7 @@
   outline: none;
   border-radius: 25px;
   transition: all 0.5s ease-in-out;
-  background-color: transparent;
+  background-color: white;
   border: 1px solid rgb(0, 0, 0);
   /* padding-right: 40px; */
   color: black;
@@ -34,7 +34,9 @@
   color: rgb(0, 0, 0);
   font-size: 18px;
   letter-spacing: 2px;
-  font-weight: 100;
+
+  background-color: white;
+  border: 12px white solid;
 }
 .btn-search {
   width: 30px;
@@ -89,14 +91,14 @@
 .btn-search-update:focus ~ .input-search {
   width: 300px;
   border-radius: 0px;
-  background-color: transparent;
+  background-color: white;
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
 }
 .input-search-update:focus {
   width: 300px;
   border-radius: 0px;
-  background-color: transparent;
+  background-color: white;
   border-bottom: 1px solid rgb(2, 6, 247);
   transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
 }
@@ -123,14 +125,14 @@
 .btn-search-create:focus ~ .input-search {
   width: 300px;
   border-radius: 0px;
-  background-color: transparent;
+  background-color: white;
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
 }
 .input-search-create:focus {
   width: 300px;
   border-radius: 0px;
-  background-color: transparent;
+  background-color: white;
   border-bottom: 1px solid rgb(0, 0, 0);
   transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
 }
@@ -157,22 +159,32 @@
 .btn-search-delete:focus ~ .input-search {
   width: 200px;
   border-radius: 0px;
-  background-color: transparent;
+  background-color: white;
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-  transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+  transition: all 500ms cubic-bezier(0, 0.11, 0.1, 1);
 }
 .input-search-delete:focus {
   width: 200px;
   border-radius: 0px;
-  background-color: transparent;
+  background-color: white;
   border-bottom: 1px solid rgb(0, 0, 0);
-  transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+  transition: all 500ms cubic-bezier(0, 0.11, 0.1, 1);
 }
+
 .res-of-search {
   border: 1px solid #aaa;
   margin: 0.4em 1rem;
   padding: 0.4rem;
-  background-color: rgb(255, 239, 209);
+  background-color: rgb(224, 224, 224);
+}
+
+.chargement {
+  margin-left: 100px;
+  margin-right: 100px;
+  text-align: center;
+  border-radius: 50px;
+  border: 1px solid black;
+  background-color: white;
 }
 
 .mainDiv-search {
@@ -180,5 +192,5 @@
 }
 
 .button-article:focus {
-  background-color: red;
+  background-color: rgb(180, 255, 180);
 }

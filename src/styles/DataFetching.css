@@ -1,5 +1,8 @@
 .master {
   display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  min-height: 90vh;
 }
 .faq-list-pb {
   margin: 5px;
@@ -13,24 +16,43 @@
   border-radius: 10px;
 }
 
-.logopdf {
+/* .logopdf {
   margin: 75px 0px 0px 0px;
   padding: 0px 0px 0px 25%;
   width: 100%;
-}
+} */
 
 .mainpb {
   padding-left: 20px;
   padding-bottom: 25px;
-  margin-top: 25px;
-  border-bottom: 1px black solid;
+  margin-bottom: 25px;
+  border: 1px #ff5722 solid;
   margin-left: 16px;
-  background-color: rgb(255, 121, 10);
-  border-radius: 15px;
-  box-shadow: 10px 5px 5px rgb(167, 167, 167);
+  background-color: white;
+  /* border-radius: 15px; */
+  box-shadow: 7px 5px 5px grey;
 }
+
+.mainpbFilter {
+  margin-top: 50px;
+  padding-top: 5px;
+  border: 1px #ff5722 solid;
+  margin-left: 16px;
+  background-color: white;
+}
+
+.mainpbFilter::placeholder {
+  color: rgb(167, 167, 167);
+  text-align: center;
+}
+
+.titlePb {
+  vertical-align: baseline;
+}
+
 .container-pb {
-  display: inline;
+  position: relative;
+  top: 10px;
 }
 
 .container-pb .main_crud {
@@ -66,7 +88,7 @@
 
 .fleche {
   position: relative;
-  top: 10px;
+  top: 13px;
   background: url("Aroow.png") no-repeat;
   background-size: contain;
   width: 40px;
@@ -75,13 +97,13 @@
 }
 
 .fleche:active {
-  background-color: rgb(123, 199, 235);
+  background-color: rgb(255, 131, 100);
   border-radius: 25px;
 }
 
 .ecrou {
   position: relative;
-  top: 10px;
+  top: 13px;
   background: url("ecrou.png") no-repeat;
   background-size: contain;
   width: 40px;
@@ -147,7 +169,7 @@
 
 .position-pdf {
   position: absolute;
-  top: 104px;
+  top: 163px;
   left: 52%;
   right: 5px;
   bottom: 10px;
@@ -164,4 +186,57 @@
   text-align: center;
   border-radius: 5px;
   border: 1px solid black;
+}
+
+.formUpload {
+  display: flex;
+}
+
+.inputUpload {
+  max-width: 70%;
+  color: black;
+  background-color: wheat;
+  border-radius: 10px;
+}
+
+.submitUpload {
+  background-color: wheat;
+  border-left: 1px solid black;
+  border-radius: 10px;
+}
+
+input[type="file"]::file-selector-button {
+  border: 2px solid #fff7cc;
+  padding: 0.2em 0.4em;
+  border-radius: 0.2em;
+  background-color: #fccee7;
+  transition: 1s;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background-color: #ff707cf1;
+  border: 2px solid #ff707cf1;
+  border-radius: 10px;
+}
+
+html,
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+.footer {
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+
+  align-items: center;
+  justify-content: space-evenly;
+  color: black;
+  background-color: #ff5722;
+  font-size: 18px;
+  padding: 20px;
 }

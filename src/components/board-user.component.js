@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import UserService from "../services/user.service";
 import DataFetching from "../components2/DataFetching";
+import "../styles/DataFetching.css";
 
 export default class BoardUser extends Component {
   constructor(props) {
@@ -33,7 +34,7 @@ export default class BoardUser extends Component {
 
   render() {
     return (
-      <div className="">
+      <div className="master-container">
         <header className="">
           <DataFetching admin={true} />
         </header>

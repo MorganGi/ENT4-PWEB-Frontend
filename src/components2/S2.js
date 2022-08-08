@@ -19,6 +19,7 @@ function S2({ id_s1, admin }) {
   function choixPb(e, i) {
     setisSet(!isSet);
     setfocusedlist(e.target.value);
+
     const newA = a;
     if (newA[i] === e.target.value) {
       newA[i] = 0;
@@ -47,69 +48,61 @@ function S2({ id_s1, admin }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const categories = symps.reduce(
-    (acc, symp) =>
-      acc.includes(symp.title_s2) ? acc : acc.concat(symp.title_s2),
-    []
-  );
+  // const categories = symps.reduce(
+  //   (acc, symp) =>
+  //     acc.includes(symp.title_s2) ? acc : acc.concat(symp.title_s2),
+  //   []
+  // );
 
-  if (categories.length === 0) {
-    return (
-      <div>
-        <p>pas de symptome N°2</p>
-      </div>
-    );
-  } else {
-    return (
-      <div className="s2">
-        {symps.map((symp, i) => (
-          <div className="main" key={symp.id_s2}>
-            <div className="container-s2">
-              {symp.title_s2}
+  return (
+    <div className="s2">
+      {symps.map((symp, i) => (
+        <div className="main" key={symp.id_s2}>
+          <div className="container-s2">
+            {symp.title_s2}
+            <button
+              className="fleche"
+              value={symp.id_s2}
+              onClick={(e) => choixPb(e, i)}
+            ></button>
+            {admin && (
               <button
-                className="fleche"
+                className="ecrou"
                 value={symp.id_s2}
-                onClick={(e) => choixPb(e, i)}
+                onClick={(e) => {
+                  setisModify(!isModify);
+                  setfocusedlist(e.target.value);
+                }}
               ></button>
-              {admin && (
-                <button
-                  className="ecrou"
-                  value={symp.id_s2}
-                  onClick={(e) => {
-                    setisModify(!isModify);
-                    setfocusedlist(e.target.value);
-                  }}
-                ></button>
-              )}
-              {isModify && focusedlist === `${symp.id_s2}` && (
-                <div className="main_crud">
-                  <UpdateComponent
-                    id={symp.id_s2}
-                    title={symp.title_s2}
-                    base={"s2"}
-                    champ={"title_s2"}
-                  />
-                  <DeleteComponent
-                    id={symp.id_s2}
-                    base={"s2"}
-                    champ={"id_s2"}
-                    name={symp.title_s2}
-                  />
-                  <Uploader id={symp.id_s2} from="s2" />
-                  <Deleter id={symp.id_s2} from="s2" />
-                </div>
-              )}
-            </div>
-            {a[i] === `${symp.id_s2}` ? (
-              <div className="solution">
-                <Solutions id_s2={symp.id_s2} />
+            )}
+            {isModify && focusedlist === `${symp.id_s2}` && (
+              <div className="main_crud">
+                <UpdateComponent
+                  id={symp.id_s2}
+                  title={symp.title_s2}
+                  base={"s2"}
+                  champ={"title_s2"}
+                />
+                <DeleteComponent
+                  id={symp.id_s2}
+                  base={"s2"}
+                  champ={"id_s2"}
+                  name={symp.title_s2}
+                />
+                <Deleter id={symp.id_s2} from="s2" />
+                <Uploader id={symp.id_s2} from="s2" />
               </div>
-            ) : null}
+            )}
           </div>
-        ))}
-      </div>
-    );
-  }
+          {a[i] === `${symp.id_s2}` ? (
+            <div className="solution">
+              <Solutions id_s2={symp.id_s2} />
+            </div>
+          ) : null}
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export default S2;

@@ -35,14 +35,15 @@ function Uploader({ id, from }) {
 
   return (
     <div>
-      <form method="POST" action="#" id="#" onSubmit={handleSubmission}>
-        <input
-          className="add"
-          type="file"
-          onChange={changeHandler}
-          multiple=""
-        />
-        <input className="add" type="submit" />
+      <form
+        className="formUpload"
+        method="POST"
+        action="#"
+        id="#"
+        onSubmit={handleSubmission}
+      >
+        <input className="inputUpload" type="file" onChange={changeHandler} />
+        <input className="submitUpload" type="submit" />
       </form>
       {message && <div className="file-size">{message}</div>}
     </div>

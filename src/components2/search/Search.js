@@ -36,20 +36,38 @@ function Searche() {
 
   const handleSubmission = (e) => {
     e.preventDefault();
+    setDefaulte("Chargement ...");
+
+    var i = 0;
+    var timesRun = 0;
+    function change() {
+      if (timesRun === 1) {
+        clearInterval(interval);
+      }
+      var doc = document.getElementById("loading");
+      var color = ["white", "#ffaeae"];
+      doc.style.backgroundColor = color[i];
+      i = (i + 1) % color.length;
+    }
+    var interval = setInterval(change, 500);
+
     if (searched !== "") {
       axios
-        .get(`http://localhost:8080/extract-text/${searched}`)
+        .get(`http://192.168.18.141:8080/extract-text/${searched}`)
         .then((res) => {
           console.log(res.data);
           if (res.data.length === 0) {
             setDefaulte("Aucun article trouvé...");
+            timesRun = 1;
           } else {
             setDefaulte("");
             setText(res.data);
+            timesRun = 1;
           }
         });
     } else {
       setDefaulte("Recherche vide.");
+      timesRun = 1;
     }
   };
 
@@ -98,7 +116,9 @@ function Searche() {
           </div>
         ))
       ) : (
-        <div className="res-of-search">{defaulte}</div>
+        <div id="loading" className="chargement">
+          {defaulte}
+        </div>
       )}
     </div>
   );
