@@ -33,12 +33,6 @@ export default class BoardUser extends Component {
   }
 
   render() {
-    return (
-      <div className="master-container">
-        <header className="">
-          <DataFetching admin={true} />
-        </header>
-      </div>
-    );
+    return <div className="master-container"></div>;
   }
 }

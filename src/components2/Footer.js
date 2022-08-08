@@ -1,8 +1,8 @@
 import React from "react";
 
-function Footer() {
+function Footer({ techno }) {
   return (
-    <div className="footer">
+    <div className={"footer"}>
       <div>Contacter le support : 0 811 85 9486</div>
       <div>
         Créer un ticket :

@@ -8,7 +8,7 @@ import Pdf from "./pdf/Pdf";
 import Uploader from "./Uploader";
 import Deleter from "./Deleter";
 
-function S1({ id, admin }) {
+function S1({ id, admin, techno }) {
   const [isSet, setisSet] = useState(false);
   const [focusedlist, setfocusedlist] = useState();
   const [symps, setSymp] = useState([]);
@@ -62,13 +62,13 @@ function S1({ id, admin }) {
   }
 
   return (
-    <div className="s1">
+    <div className={techno + "s1"}>
       {symps.map((symp, i) => (
         <div className="" key={symp.id_s1}>
-          <div className="container-s1">
+          <div className={techno + "-container-s1"}>
             {symp.title_s1}
             <button
-              className="fleche"
+              className={techno + "-fleche"}
               value={symp.id_s1}
               onClick={(e) => {
                 choixPb(e, i);
@@ -77,7 +77,7 @@ function S1({ id, admin }) {
             ></button>
             {admin && (
               <button
-                className="ecrou"
+                className={techno + "-ecrou"}
                 value={symp.id_s1}
                 onClick={(e) => {
                   setisModify(!isModify);
@@ -87,12 +87,13 @@ function S1({ id, admin }) {
               ></button>
             )}
             {isModify && focusedlist === `${symp.id_s1}` && (
-              <div className="main_crud">
+              <div className={techno + "-main_crud"}>
                 <UpdateComponent
                   id={symp.id_s1}
                   title={symp.title_s1}
                   base={"s1"}
                   champ={"title_s1"}
+                  techno={techno}
                 />
 
                 <CreateComponent
@@ -101,34 +102,36 @@ function S1({ id, admin }) {
                   champ={"title_s2"}
                   champ2={"ind_s1"}
                   base={"s2"}
+                  techno={techno}
                 />
                 <DeleteComponent
                   id={symp.id_s1}
                   base={"s1"}
                   champ={"id_s1"}
                   name={symp.title_s1}
+                  techno={techno}
                 />
 
                 {solution ? (
-                  <Uploader id={symp.id_s1} from="s1" />
+                  <Uploader id={symp.id_s1} from="s1" techno={techno} />
                 ) : (
-                  <Deleter id={symp.id_s1} from="s1" />
+                  <Deleter id={symp.id_s1} from="s1" techno={techno} />
                 )}
               </div>
             )}
           </div>
           {a[i] === `${symp.id_s1}` ? (
             !solution ? (
-              <div className="solution">
+              <div className={techno + "solution"}>
                 {symps2.map((symp) => (
-                  <div className="position-pdf" key={symp.id_s1}>
+                  <div className={techno + "-position-pdf"} key={symp.id_s1}>
                     <Pdf file={"/pdf/" + symp.text} />{" "}
                   </div>
                 ))}
               </div>
             ) : (
               <div>
-                <S2 id_s1={symp.id_s1} admin={admin} />
+                <S2 id_s1={symp.id_s1} admin={admin} techno={techno} />
               </div>
             )
           ) : null}

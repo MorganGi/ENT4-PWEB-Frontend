@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Pdf from "../pdf/Pdf";
 import "./searche.css";
 
-function Searche() {
+function Searche({ techno }) {
   const [searched, setSearched] = useState("");
   const [texts, setText] = useState([]);
   const [focusedlist, setfocusedlist] = useState();
@@ -109,7 +109,7 @@ function Searche() {
               Voir cet article
             </button>
             {isModify && a[i] === `${i}` && (
-              <div className="position-pdf">
+              <div className={techno + "-position-pdf"}>
                 <Pdf file={"/pdf/" + titre} />{" "}
               </div>
             )}

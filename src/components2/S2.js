@@ -7,7 +7,7 @@ import Uploader from "./Uploader";
 import Deleter from "./Deleter";
 import DeleteComponent from "./Delete.component";
 
-function S2({ id_s1, admin }) {
+function S2({ id_s1, admin, techno }) {
   const [symps, setSymp] = useState([]);
   const [isSet, setisSet] = useState(false);
   const [focusedlist, setfocusedlist] = useState();
@@ -57,17 +57,17 @@ function S2({ id_s1, admin }) {
   return (
     <div className="s2">
       {symps.map((symp, i) => (
-        <div className="main" key={symp.id_s2}>
-          <div className="container-s2">
+        <div className={techno + "-main"} key={symp.id_s2}>
+          <div className={techno + "-container-s2"}>
             {symp.title_s2}
             <button
-              className="fleche"
+              className={techno + "-fleche"}
               value={symp.id_s2}
               onClick={(e) => choixPb(e, i)}
             ></button>
             {admin && (
               <button
-                className="ecrou"
+                className={techno + "-ecrou"}
                 value={symp.id_s2}
                 onClick={(e) => {
                   setisModify(!isModify);
@@ -76,27 +76,29 @@ function S2({ id_s1, admin }) {
               ></button>
             )}
             {isModify && focusedlist === `${symp.id_s2}` && (
-              <div className="main_crud">
+              <div className={techno + "-main_crud"}>
                 <UpdateComponent
                   id={symp.id_s2}
                   title={symp.title_s2}
                   base={"s2"}
                   champ={"title_s2"}
+                  techno={techno}
                 />
                 <DeleteComponent
                   id={symp.id_s2}
                   base={"s2"}
                   champ={"id_s2"}
                   name={symp.title_s2}
+                  techno={techno}
                 />
-                <Deleter id={symp.id_s2} from="s2" />
-                <Uploader id={symp.id_s2} from="s2" />
+                <Deleter id={symp.id_s2} from="s2" techno={techno} />
+                <Uploader id={symp.id_s2} from="s2" techno={techno} />
               </div>
             )}
           </div>
           {a[i] === `${symp.id_s2}` ? (
-            <div className="solution">
-              <Solutions id_s2={symp.id_s2} />
+            <div className={techno + "-solution"}>
+              <Solutions techno={techno} id_s2={symp.id_s2} />
             </div>
           ) : null}
         </div>

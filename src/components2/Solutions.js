@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Pdf from "./pdf/Pdf";
 
-function Solutions({ id_s2 }) {
+function Solutions({ id_s2, techno }) {
   const [symps, setSymp] = useState([]);
 
   const uri = `http://localhost:8080/solutions/${id_s2}`;
@@ -22,7 +22,7 @@ function Solutions({ id_s2 }) {
   return (
     <div className="solution">
       {symps.map((symp) => (
-        <div className="position-pdf" key={symp.id_s2}>
+        <div className={techno + "-position-pdf"} key={symp.id_s2}>
           <Pdf file={"/pdf/" + symp.text} />{" "}
         </div>
       ))}

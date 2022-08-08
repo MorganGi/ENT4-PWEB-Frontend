@@ -1,28 +1,29 @@
-.master {
+/* CSS XIVO  */
+
+.xivo-master {
   display: flex;
   display: -webkit-flex;
   flex-direction: column;
   min-height: 90vh;
+  background-image: url("./xivo.svg");
+  background-repeat: no-repeat;
+  background-size: 50% 50%;
+  background-position: right;
 }
-.faq-list-pb {
+
+.xivo-faq-list-pb {
   margin: 5px;
   padding: 0px;
   width: 50%;
 }
 
-.faq-list-pb2 {
+.xivo-faq-list-pb2 {
   float: left;
   margin: 15px 5px 0px 20px;
   border-radius: 10px;
 }
 
-/* .logopdf {
-  margin: 75px 0px 0px 0px;
-  padding: 0px 0px 0px 25%;
-  width: 100%;
-} */
-
-.mainpb {
+.xivo-mainpb {
   padding-left: 20px;
   padding-bottom: 25px;
   margin-bottom: 25px;
@@ -33,7 +34,7 @@
   box-shadow: 7px 5px 5px grey;
 }
 
-.mainpbFilter {
+.xivo-mainpbFilter {
   margin-top: 50px;
   padding-top: 5px;
   border: 1px #ff5722 solid;
@@ -41,52 +42,52 @@
   background-color: white;
 }
 
-.mainpbFilter::placeholder {
+.xivo-mainpbFilter::placeholder {
   color: rgb(167, 167, 167);
   text-align: center;
 }
 
-.titlePb {
+.xivo-titlePb {
   vertical-align: baseline;
 }
 
-.container-pb {
+.xivo-container-pb {
   position: relative;
   top: 10px;
 }
 
-.container-pb .main_crud {
+.xivo-container-pb .xivo-main_crud {
   display: flex;
   flex-wrap: wrap;
   padding-top: 5px;
   margin-left: 0%;
 }
 
-.container-s1 {
+.xivo-container-s1 {
   display: inline;
   padding-left: 25%;
 }
 
-.container-s1 .main_crud {
+.xivo-container-s1 .xivo-main_crud {
   display: flex;
   flex-wrap: wrap;
   padding-top: 5px;
   margin-left: 25%;
 }
 
-.container-s2 {
+.xivo-container-s2 {
   display: inline;
   padding-left: 50%;
 }
 
-.container-s2 .main_crud {
+.xivo-container-s2 .xivo-main_crud {
   display: flex;
   flex-wrap: wrap;
   padding-top: 5px;
   margin-left: 50%;
 }
 
-.fleche {
+.xivo-fleche {
   position: relative;
   top: 13px;
   background: url("Aroow.png") no-repeat;
@@ -96,12 +97,12 @@
   border: none;
 }
 
-.fleche:active {
+.xivo-fleche:active {
   background-color: rgb(255, 131, 100);
   border-radius: 25px;
 }
 
-.ecrou {
+.xivo-ecrou {
   position: relative;
   top: 13px;
   background: url("ecrou.png") no-repeat;
@@ -117,57 +118,17 @@
   font-size: 1.5em;
 }
 
-.update {
-  background-color: rgb(76, 76, 236);
-  border: 1px rgb(108, 108, 143) solid;
-  border-radius: 5px;
-  color: white;
-  font-size: small;
-  max-width: 100px;
-}
-
-.update-button {
-  background-color: rgb(76, 76, 236);
-  border: 1px rgb(108, 108, 143) solid;
-  border-radius: 5px;
-  color: white;
-  font-size: small;
-}
-.create {
-  background-color: rgb(134, 192, 0);
-  border: 1px rgb(0, 0, 0) solid;
-  border-radius: 5px;
-  color: white;
-  font-size: small;
-  max-width: 100px;
-}
-
-.create-button {
-  background-color: rgb(134, 192, 0);
-  border: 1px rgb(120, 243, 83) solid;
-  border-radius: 5px;
-  color: white;
-  font-size: small;
-}
-
-.delete {
-  background-color: rgb(231, 128, 59);
-  border: 1px rgb(233, 60, 37) solid;
-  border-radius: 5px;
-  color: white;
-}
-
-.add {
+.xivo-add {
   border-radius: 5px;
   color: rgb(0, 0, 0);
   font-size: small;
 }
 
-.solution {
+.xivo-solution {
   padding-top: 25px;
 }
 
-.position-pdf {
+.xivo-position-pdf {
   position: absolute;
   top: 163px;
   left: 52%;
@@ -175,12 +136,12 @@
   bottom: 10px;
 }
 
-.main-create {
+.xivo-main-create {
   margin-left: 20px;
   margin-top: 20px;
 }
 
-.file-size {
+.xivo-file-size {
   color: red;
   background-color: white;
   text-align: center;
@@ -188,22 +149,199 @@
   border: 1px solid black;
 }
 
-.formUpload {
+.xivo-formUpload {
   display: flex;
 }
 
-.inputUpload {
+.xivo-inputUpload {
   max-width: 70%;
   color: black;
   background-color: wheat;
   border-radius: 10px;
 }
 
-.submitUpload {
+.xivo-submitUpload {
   background-color: wheat;
   border-left: 1px solid black;
   border-radius: 10px;
 }
+
+.logopdf {
+  margin: 75px 0px 0px 0px;
+  padding: 0px 0px 0px 25%;
+  width: 100%;
+}
+/* FIN CSS XIVO  */
+
+/* CSS CEBOX  */
+
+.cebox-master {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  min-height: 90vh;
+  background-color: #cfffc5;
+  background-image: url("./cebox.svg");
+  background-repeat: no-repeat;
+  background-size: 50% 50%;
+  background-position: right;
+}
+
+.cebox-faq-list-pb {
+  margin: 5px;
+  padding: 0px;
+  width: 50%;
+}
+
+.cebox-faq-list-pb2 {
+  float: left;
+  margin: 15px 5px 0px 20px;
+  border-radius: 10px;
+}
+
+.cebox-mainpb {
+  padding-left: 20px;
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+  border: 1px #a6ff94 solid;
+  margin-left: 16px;
+  background-color: white;
+  /* border-radius: 15px; */
+  box-shadow: 7px 5px 5px grey;
+}
+
+.cebox-mainpbFilter {
+  margin-top: 50px;
+  padding-top: 5px;
+  border: 1px #a6ff94 solid;
+  margin-left: 16px;
+  background-color: white;
+}
+
+.cebox-mainpbFilter::placeholder {
+  color: rgb(167, 167, 167);
+  text-align: center;
+}
+
+.cebox-titlePb {
+  vertical-align: baseline;
+}
+
+.cebox-container-pb {
+  position: relative;
+  top: 10px;
+}
+
+.cebox-container-pb .cebox-main_crud {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 5px;
+  margin-left: 0%;
+}
+
+.cebox-container-s1 {
+  display: inline;
+  padding-left: 25%;
+}
+
+.cebox-container-s1 .cebox-main_crud {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 5px;
+  margin-left: 25%;
+}
+
+.cebox-container-s2 {
+  display: inline;
+  padding-left: 50%;
+}
+
+.cebox-container-s2 .cebox-main_crud {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 5px;
+  margin-left: 50%;
+}
+
+.cebox-fleche {
+  position: relative;
+  top: 13px;
+  background: url("Aroow.png") no-repeat;
+  background-size: contain;
+  width: 40px;
+  height: 40px;
+  border: none;
+}
+
+.cebox-fleche:active {
+  background-color: rgb(34, 173, 29);
+  border-radius: 25px;
+}
+
+.cebox-ecrou {
+  position: relative;
+  top: 13px;
+  background: url("ecrou.png") no-repeat;
+  background-size: contain;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 25px;
+}
+
+::placeholder {
+  color: white;
+  font-size: 1.5em;
+}
+
+.cebox-add {
+  border-radius: 5px;
+  color: rgb(0, 0, 0);
+  font-size: small;
+}
+
+.cebox-solution {
+  padding-top: 25px;
+}
+
+.cebox-position-pdf {
+  position: absolute;
+  top: 163px;
+  left: 52%;
+  right: 5px;
+  bottom: 10px;
+}
+
+.cebox-main-create {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.cebox-file-size {
+  color: red;
+  background-color: white;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.cebox-formUpload {
+  display: flex;
+}
+
+.cebox-inputUpload {
+  max-width: 70%;
+  color: black;
+  background-color: wheat;
+  border-radius: 10px;
+}
+
+.cebox-submitUpload {
+  background-color: wheat;
+  border-left: 1px solid black;
+  border-radius: 10px;
+}
+/* FIN CSS CEBOX  */
 
 input[type="file"]::file-selector-button {
   border: 2px solid #fff7cc;
@@ -236,7 +374,7 @@ body {
   align-items: center;
   justify-content: space-evenly;
   color: black;
-  background-color: #ff5722;
+  background-color: #777777;
   font-size: 18px;
   padding: 20px;
 }

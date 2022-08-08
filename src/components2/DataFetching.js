@@ -9,7 +9,7 @@ import Searche from "./search/Search";
 import Footer from "./Footer";
 // import AuthService from "../services/auth.service";
 
-function DataFetching({ admin }) {
+function DataFetching({ admin, techno }) {
   const [isSet, setisSet] = useState(false);
   const [focusedlist, setfocusedlist] = useState();
   const [posts, setPosts] = useState([]);
@@ -19,7 +19,7 @@ function DataFetching({ admin }) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/pb/")
+      .get(`http://localhost:8080/pb/${techno}`)
       .then((res) => {
         setPosts(res.data);
       })
@@ -36,7 +36,7 @@ function DataFetching({ admin }) {
       findabr === undefined
     ) {
       axios
-        .get("http://localhost:8080/pb/")
+        .get(`http://localhost:8080/pb/${techno}`)
         .then((res) => {
           setPosts(res.data);
         })
@@ -45,7 +45,7 @@ function DataFetching({ admin }) {
         });
     } else {
       axios
-        .get(`http://localhost:8080/searchpb/${e.target.value}`)
+        .get(`http://localhost:8080/searchpb/${techno}/${e.target.value}`)
         .then((res) => {
           setPosts(res.data);
         })
@@ -69,11 +69,11 @@ function DataFetching({ admin }) {
 
   return (
     <div>
-      <div className="master">
-        <div className="faq-list-pb">
-          <Searche />
+      <div className={techno + "-master"}>
+        <div className={techno + "-faq-list-pb"}>
+          <Searche techno={techno} />
           <input
-            className="mainpbFilter"
+            className={techno + "-mainpbFilter"}
             type="text"
             placeholder="Filter"
             defaultValue=""
@@ -82,17 +82,17 @@ function DataFetching({ admin }) {
             }}
           ></input>
           {posts.map(({ id, title_pb }, i) => (
-            <div key={id + "div"} id="mainpb" className="mainpb">
-              <div key={id + "div2"} className="container-pb">
+            <div key={id + "div"} id="mainpb" className={techno + "-mainpb"}>
+              <div key={id + "div2"} className={techno + "-container-pb"}>
                 {title_pb}
                 <button
-                  className="fleche"
+                  className={techno + "-fleche"}
                   value={id}
                   onClick={(e) => choixPb(e, i)}
                 ></button>
                 {admin && (
                   <button
-                    className="ecrou"
+                    className={techno + "-ecrou"}
                     value={id}
                     onClick={(e) => {
                       setisModify(!isModify);
@@ -101,12 +101,13 @@ function DataFetching({ admin }) {
                   ></button>
                 )}
                 {isModify && focusedlist === `${id}` && (
-                  <div key={id} className="main_crud">
+                  <div key={id} className={techno + "-main_crud"}>
                     <UpdateComponent
                       id={id}
                       title={title_pb}
                       base={"pb"}
                       champ={"title_pb"}
+                      techno={techno}
                     />
                     <CreateComponent
                       id={id}
@@ -114,39 +115,42 @@ function DataFetching({ admin }) {
                       champ={"title_s1"}
                       champ2={"ind_pb"}
                       title={title_pb}
+                      techno={techno}
                     />
                     <DeleteComponent
                       id={id}
                       base={"pb"}
                       champ={"id"}
                       name={title_pb}
+                      techno={techno}
                     />
                   </div>
                 )}
               </div>
 
               {a[i] === `${id}` ? (
-                <div className="choix-main">
-                  <S1 id={id} admin={admin} />
+                <div className={techno + "-choix-main"}>
+                  <S1 id={id} admin={admin} techno={techno} />
                 </div>
               ) : null}
             </div>
           ))}
           {admin && (
-            <div className="main-create">
+            <div className={techno + "-main-create"}>
               <CreateComponent
                 id={"1"}
                 base={"pb"}
                 champ={"title_pb"}
-                champ2={"null"}
+                champ2={techno}
                 title={"a"}
+                techno={techno}
               />
             </div>
           )}
         </div>
-        <div className="faq-list-pb2"></div>
+        <div className={techno + "-faq-list-pb2"}></div>
       </div>
-      <Footer />
+      <Footer techno={techno} />
     </div>
   );
 }

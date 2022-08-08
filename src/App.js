@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import logo from "./styles/xivo.png";
+import logo from "./styles/wisper.jpg";
 import AuthService from "./services/auth.service";
 import Login from "./components/login.component";
 import Register from "./components/register.component";
@@ -11,7 +11,8 @@ import Profile from "./components/profile.component";
 import BoardUser from "./components/board-user.component";
 import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
-import DataFetching from "./components2/DataFetching";
+import BoardCebox from "./components/board-cebox.component";
+import BoardXivo from "./components/board-xivo.component";
 
 class App extends Component {
   constructor(props) {
@@ -20,6 +21,8 @@ class App extends Component {
     this.state = {
       showModeratorBoard: false,
       showAdminBoard: false,
+      showXivoBoard: false,
+      showCeboxBoard: false,
       currentUser: undefined,
     };
   }
@@ -30,6 +33,8 @@ class App extends Component {
         currentUser: user,
         showModeratorBoard: user.roles.includes("ROLE_MODERATOR"),
         showAdminBoard: user.roles.includes("ROLE_ADMIN"),
+        showXivoBoard: user.roles.includes("ROLE_XIVO"),
+        showCeboxBoard: user.roles.includes("ROLE_CEBOX"),
       });
     }
   }
@@ -37,7 +42,13 @@ class App extends Component {
     AuthService.logout();
   }
   render() {
-    const { currentUser, showModeratorBoard, showAdminBoard } = this.state;
+    const {
+      currentUser,
+      showModeratorBoard,
+      showAdminBoard,
+      showXivoBoard,
+      showCeboxBoard,
+    } = this.state;
     return (
       <div>
         <nav className="navbar-main">
@@ -54,6 +65,20 @@ class App extends Component {
               <li className="navbar-item">
                 <Link to={"/mod"} className="navbar-link">
                   Espace Moderateur
+                </Link>
+              </li>
+            )}
+            {showXivoBoard && (
+              <li className="navbar-item">
+                <Link to={"/faq-xivo"} className="navbar-link">
+                  FAQ XIVO
+                </Link>
+              </li>
+            )}
+            {showCeboxBoard && (
+              <li className="navbar-item">
+                <Link to={"/faq-cebox"} className="navbar-link">
+                  FAQ CEBOX
                 </Link>
               </li>
             )}
@@ -106,11 +131,6 @@ class App extends Component {
                     FAQ XIVO
                   </Link>
                 </li>
-                <li className="navbar-item">
-                  <Link to={"/faq-cebox"} className="navbar-link">
-                    FAQ CEBOX
-                  </Link>
-                </li>
               </div>
             )}
           </div>
@@ -124,8 +144,8 @@ class App extends Component {
           <Route path="/user" component={BoardUser} />
           <Route path="/mod" component={BoardModerator} />
           <Route path="/admin" component={BoardAdmin} />
-          <Route path="/faq-xivo" component={DataFetching} />
-          <Route path="/faq-cebox" />
+          <Route path="/faq-xivo" component={BoardXivo} />
+          <Route path="/faq-cebox" component={BoardCebox} />
         </Switch>
       </div>
     );
