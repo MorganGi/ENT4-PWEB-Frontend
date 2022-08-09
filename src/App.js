@@ -124,11 +124,6 @@ class App extends Component {
                   </Link>
                 </li>
                 <li className="navbar-item">
-                  <Link to={"/register"} className="navbar-link">
-                    S'enregistrer
-                  </Link>
-                </li>
-                <li className="navbar-item">
                   <Link to={"/faq-xivo-pub"} className="navbar-link">
                     FAQ XIVO
                   </Link>
@@ -146,7 +141,7 @@ class App extends Component {
         <Switch>
           <Route exact path={["/", "/home"]} component={Home} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/register" component={Register} />
+          {/* <Route exact path="/register" component={Register} /> */}
           <Route exact path="/profile" component={Profile} />
           <Route path="/user" component={BoardUser} />
           <Route path="/mod" component={BoardModerator} />

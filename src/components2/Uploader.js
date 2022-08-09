@@ -45,8 +45,12 @@ function Uploader({ id, from, techno }) {
         id="#"
         onSubmit={handleSubmission}
       >
-        <input className="inputUpload" type="file" onChange={changeHandler} />
-        <input className="submitUpload" type="submit" />
+        <input
+          className={techno + "-inputUpload"}
+          type="file"
+          onChange={changeHandler}
+        />
+        <input className={techno + "-submitUpload"} type="submit" />
       </form>
       {message && <div className="file-size">{message}</div>}
     </div>

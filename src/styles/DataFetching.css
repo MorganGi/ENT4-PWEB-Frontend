@@ -332,12 +332,12 @@
 .cebox-inputUpload {
   max-width: 70%;
   color: black;
-  background-color: wheat;
+  background-color: rgb(181, 245, 179);
   border-radius: 10px;
 }
 
 .cebox-submitUpload {
-  background-color: wheat;
+  background-color: rgb(179, 245, 179);
   border-left: 1px solid black;
   border-radius: 10px;
 }

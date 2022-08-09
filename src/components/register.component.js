@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
 import AuthService from "../services/auth.service";
-const required = value => {
+import axios from "axios";
+const required = (value) => {
   if (!value) {
     return (
       <div className="alert alert-danger" role="alert">
@@ -13,7 +14,7 @@ const required = value => {
     );
   }
 };
-const email = value => {
+const email = (value) => {
   if (!isEmail(value)) {
     return (
       <div className="alert alert-danger" role="alert">
@@ -22,7 +23,7 @@ const email = value => {
     );
   }
 };
-const vusername = value => {
+const vusername = (value) => {
   if (value.length < 3 || value.length > 20) {
     return (
       <div className="alert alert-danger" role="alert">
@@ -31,7 +32,7 @@ const vusername = value => {
     );
   }
 };
-const vpassword = value => {
+const vpassword = (value) => {
   if (value.length < 6 || value.length > 40) {
     return (
       <div className="alert alert-danger" role="alert">
@@ -47,49 +48,75 @@ export default class Register extends Component {
     this.onChangeUsername = this.onChangeUsername.bind(this);
     this.onChangeEmail = this.onChangeEmail.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
+    this.onChangeGroupe = this.onChangeGroupe.bind(this);
     this.state = {
       username: "",
       email: "",
       password: "",
       successful: false,
-      message: ""
+      message: "",
+      rolesdisplay: [],
+      roles: [],
     };
+    var tab = [];
+    axios.get("http://localhost:8080/roles").then((roles) => {
+      for (let i = 0; i < roles.data.length; i++) {
+        tab.push(roles.data[i].name);
+      }
+      this.setState({
+        rolesdisplay: tab,
+      });
+    });
   }
+
   onChangeUsername(e) {
     this.setState({
-      username: e.target.value
+      username: e.target.value,
     });
   }
   onChangeEmail(e) {
     this.setState({
-      email: e.target.value
+      email: e.target.value,
     });
   }
   onChangePassword(e) {
     this.setState({
-      password: e.target.value
+      password: e.target.value,
     });
+  }
+  onChangeGroupe(e) {
+    if (this.state.roles.includes(e.target.value)) {
+      const value = this.state.roles.filter((item) => item !== e.target.value);
+      this.setState({ roles: value });
+    } else {
+      this.setState({ roles: this.state.roles.concat(e.target.value) });
+    }
+    //DEBBUG BOX
+    // setTimeout(() => {
+    //   console.log(this.state.roles);
+    // }, [10]);
   }
   handleRegister(e) {
     e.preventDefault();
     this.setState({
       message: "",
-      successful: false
+      successful: false,
     });
     this.form.validateAll();
     if (this.checkBtn.context._errors.length === 0) {
       AuthService.register(
         this.state.username,
         this.state.email,
-        this.state.password
+        this.state.password,
+        this.state.roles
       ).then(
-        response => {
+        (response) => {
           this.setState({
             message: response.data.message,
-            successful: true
+            successful: true,
           });
         },
-        error => {
+        (error) => {
           const resMessage =
             (error.response &&
               error.response.data &&
@@ -98,7 +125,7 @@ export default class Register extends Component {
             error.toString();
           this.setState({
             successful: false,
-            message: resMessage
+            message: resMessage,
           });
         }
       );
@@ -115,7 +142,7 @@ export default class Register extends Component {
           />
           <Form
             onSubmit={this.handleRegister}
-            ref={c => {
+            ref={(c) => {
               this.form = c;
             }}
           >
@@ -154,6 +181,36 @@ export default class Register extends Component {
                     validations={[required, vpassword]}
                   />
                 </div>
+                <h4>Groupes</h4>
+                <label htmlFor="check-1">User</label>
+                <input
+                  type="checkbox"
+                  name="check-1"
+                  value="user"
+                  onChange={this.onChangeGroupe}
+                />
+                <label htmlFor="check-2">Xivo</label>
+                <input
+                  type="checkbox"
+                  name="check-2"
+                  value="xivo"
+                  onChange={this.onChangeGroupe}
+                />
+                <label htmlFor="check-3">Cebox</label>
+                <input
+                  type="checkbox"
+                  name="check-3"
+                  value="cebox"
+                  onChange={this.onChangeGroupe}
+                />
+                <label htmlFor="check-3">Admin</label>
+                <input
+                  type="checkbox"
+                  name="check-3"
+                  value="admin"
+                  onChange={this.onChangeGroupe}
+                />
+
                 <div className="form-group">
                   <button className="btn btn-primary btn-block">Sign Up</button>
                 </div>
@@ -175,7 +232,7 @@ export default class Register extends Component {
             )}
             <CheckButton
               style={{ display: "none" }}
-              ref={c => {
+              ref={(c) => {
                 this.checkBtn = c;
               }}
             />
