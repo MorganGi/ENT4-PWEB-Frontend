@@ -53,7 +53,7 @@ function Searche({ techno }) {
 
     if (searched !== "") {
       axios
-        .get(`http://192.168.18.141:8080/extract-text/${searched}`)
+        .get(`http://192.168.18.141:8080/extract-text/${techno}/${searched}`)
         .then((res) => {
           console.log(res.data);
           if (res.data.length === 0) {

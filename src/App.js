@@ -13,6 +13,8 @@ import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
 import BoardCebox from "./components/board-cebox.component";
 import BoardXivo from "./components/board-xivo.component";
+import BoardXivoPublic from "./components/board-xivo-public.component";
+import BoardCeboxPublic from "./components/board-cebox-public.component";
 
 class App extends Component {
   constructor(props) {
@@ -127,8 +129,13 @@ class App extends Component {
                   </Link>
                 </li>
                 <li className="navbar-item">
-                  <Link to={"/faq-xivo"} className="navbar-link">
+                  <Link to={"/faq-xivo-pub"} className="navbar-link">
                     FAQ XIVO
+                  </Link>
+                </li>
+                <li className="navbar-item">
+                  <Link to={"/faq-cebox-pub"} className="navbar-link">
+                    FAQ CEBOX
                   </Link>
                 </li>
               </div>
@@ -146,6 +153,8 @@ class App extends Component {
           <Route path="/admin" component={BoardAdmin} />
           <Route path="/faq-xivo" component={BoardXivo} />
           <Route path="/faq-cebox" component={BoardCebox} />
+          <Route path="/faq-xivo-pub" component={BoardXivoPublic} />
+          <Route path="/faq-cebox-pub" component={BoardCeboxPublic} />
         </Switch>
       </div>
     );
