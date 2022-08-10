@@ -11,26 +11,26 @@ export default class BoardCeboxPublic extends Component {
     };
   }
 
-  componentDidMount() {
-    UserService.getUserBoard().then(
-      (response) => {
-        this.setState({
-          content: response.data,
-        });
-        console.log(response.data);
-      },
-      (error) => {
-        this.setState({
-          content:
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
-            error.message ||
-            error.toString(),
-        });
-      }
-    );
-  }
+  // componentDidMount() {
+  //   UserService.getUserBoard().then(
+  //     (response) => {
+  //       this.setState({
+  //         content: response.data,
+  //       });
+  //       console.log(response.data);
+  //     },
+  //     (error) => {
+  //       this.setState({
+  //         content:
+  //           (error.response &&
+  //             error.response.data &&
+  //             error.response.data.message) ||
+  //           error.message ||
+  //           error.toString(),
+  //       });
+  //     }
+  //   );
+  // }
 
   render() {
     return (

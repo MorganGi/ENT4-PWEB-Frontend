@@ -8,7 +8,6 @@ function Searche({ techno }) {
   const [texts, setText] = useState([]);
   const [focusedlist, setfocusedlist] = useState();
   const [defaulte, setDefaulte] = useState("");
-
   const [a, setA] = useState([]);
   const [isModify, setisModify] = useState(false);
 
@@ -20,7 +19,6 @@ function Searche({ techno }) {
       setisModify(false);
     } else {
       setisModify(true);
-      console.log(newA.length);
       newA[i] = e.target.value;
       for (let j = 0; j < newA.length; j++) {
         if (i === j) {
@@ -55,7 +53,6 @@ function Searche({ techno }) {
       axios
         .get(`http://192.168.18.141:8080/extract-text/${techno}/${searched}`)
         .then((res) => {
-          console.log(res.data);
           if (res.data.length === 0) {
             setDefaulte("Aucun article trouvé...");
             timesRun = 1;
@@ -102,11 +99,11 @@ function Searche({ techno }) {
             ))}
             <br />
             <button
-              className="button-article"
+              className="btn btn-primary"
               value={i}
               onClick={(e) => choixPb(e, i)}
             >
-              Voir cet article
+              Voir l'article
             </button>
             {isModify && a[i] === `${i}` && (
               <div className={techno + "-position-pdf"}>

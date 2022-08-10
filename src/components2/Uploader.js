@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-
+const IP = "192.168.18.141";
 function Uploader({ id, from, techno }) {
   const [selectedFile, setSelectedFile] = useState();
   const [message, setMessage] = useState("");
@@ -22,7 +22,7 @@ function Uploader({ id, from, techno }) {
 
       axios
         .post(
-          `http://localhost:8080/upload-avatar/${techno}/${id}&${from}`,
+          `http://${IP}:8080/upload-avatar/${techno}/${id}&${from}`,
           formData
         )
         .catch((e) => {
@@ -52,7 +52,7 @@ function Uploader({ id, from, techno }) {
         />
         <input className={techno + "-submitUpload"} type="submit" />
       </form>
-      {message && <div className="file-size">{message}</div>}
+      {message && <div className="alert alert-danger">{message}</div>}
     </div>
   );
 }

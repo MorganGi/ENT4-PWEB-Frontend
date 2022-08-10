@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Pdf from "./pdf/Pdf";
-
+const IP = "192.168.18.141";
 function Solutions({ id_s2, techno }) {
   const [symps, setSymp] = useState([]);
 
-  const uri = `http://localhost:8080/solutions/${id_s2}`;
+  const uri = `http://${IP}:8080/solutions/${id_s2}`;
 
   useEffect(() => {
     axios

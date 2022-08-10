@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import UserService from "../services/user.service";
 import "../components2/DataFetching.js";
+import axios from "axios";
 
 export default class Home extends Component {
   constructor(props) {
@@ -8,6 +9,9 @@ export default class Home extends Component {
     this.state = {
       content: "",
     };
+    axios.get("http://192.168.18.141:8080/").then((res) => {
+      console.log(res);
+    });
   }
   componentDidMount() {
     UserService.getPublicContent().then(

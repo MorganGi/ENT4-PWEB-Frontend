@@ -1,13 +1,12 @@
 import React from "react";
 import axios from "axios";
+const IP = "192.168.18.141";
 
 function Deleter({ id, from }) {
   const handleSubmission = (e) => {
-    axios
-      .get(`http://localhost:8080/solutions/del/${id}&${from}`)
-      .catch((e) => {
-        console.error("Error", e);
-      });
+    axios.get(`http://${IP}:8080/solutions/del/${id}&${from}`).catch((e) => {
+      console.error("Error", e);
+    });
   };
   return (
     <div>

@@ -7,6 +7,7 @@ import CreateComponent from "./Create.component";
 import DeleteComponent from "./Delete.component";
 import Searche from "./search/Search";
 import Footer from "./Footer";
+const IP = "192.168.18.141";
 // import AuthService from "../services/auth.service";
 
 function DataFetching({ admin, techno }) {
@@ -19,7 +20,7 @@ function DataFetching({ admin, techno }) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/pb/${techno}`)
+      .get(`http://${IP}:8080/pb/${techno}`)
       .then((res) => {
         setPosts(res.data);
       })
@@ -36,7 +37,7 @@ function DataFetching({ admin, techno }) {
       findabr === undefined
     ) {
       axios
-        .get(`http://localhost:8080/pb/${techno}`)
+        .get(`http://${IP}:8080/pb/${techno}`)
         .then((res) => {
           setPosts(res.data);
         })
@@ -45,7 +46,7 @@ function DataFetching({ admin, techno }) {
         });
     } else {
       axios
-        .get(`http://localhost:8080/searchpb/${techno}/${e.target.value}`)
+        .get(`http://${IP}:8080/searchpb/${techno}/${e.target.value}`)
         .then((res) => {
           setPosts(res.data);
         })

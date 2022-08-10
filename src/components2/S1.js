@@ -16,8 +16,8 @@ function S1({ id, admin, techno }) {
   const [solution, setSolution] = useState(false);
   const [isModify, setisModify] = useState(false);
   const [a, setA] = useState([]);
-  const uri = `http://localhost:8080/s1/${id}`;
-
+  const IP = "192.168.18.141";
+  const uri = `http://${IP}:8080/s1/${id}`;
   useEffect(() => {
     axios
       .get(uri)
@@ -32,7 +32,7 @@ function S1({ id, admin, techno }) {
 
   function x(id_s1) {
     axios
-      .get(`http://localhost:8080/solutionsbis/${id_s1}`)
+      .get(`http://${IP}:8080/solutionsbis/${id_s1}`)
       .then((res) => {
         // console.log(res);
         if (res.data[0]) {

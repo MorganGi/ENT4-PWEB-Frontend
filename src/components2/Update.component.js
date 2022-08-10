@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "../styles/DataFetching.css";
-
+const IP = "192.168.18.141";
 export default class UpdateComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -28,7 +28,9 @@ export default class UpdateComponent extends React.Component {
 
   updatee(e, db, title, champ, id) {
     axios
-      .put(`http://localhost:8080/update/${db}&${title}&${e}&${id}&${champ}`)
+      .put(
+        `http://192.168.18.141:8080/update/${db}&${title}&${e}&${id}&${champ}`
+      )
       .catch((err) => {
         console.log(err);
       });
