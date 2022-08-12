@@ -54,7 +54,7 @@ class App extends Component {
       <div>
         <nav className="navbar-main">
           <Link to={"/"} className="logo">
-            <img src={logo} alt="image" className="logo-png" />
+            <img src={logo} className="logo-png" />
           </Link>
           <div className="navbar-div">
             <li className="navbar-item">

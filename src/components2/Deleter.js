@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-const IP = "192.168.18.141";
+const IP = "192.168.1.94";
 
 function Deleter({ id, from }) {
   const handleSubmission = (e) => {

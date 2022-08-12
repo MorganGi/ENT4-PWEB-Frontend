@@ -16,7 +16,7 @@ function S1({ id, admin, techno }) {
   const [solution, setSolution] = useState(false);
   const [isModify, setisModify] = useState(false);
   const [a, setA] = useState([]);
-  const IP = "192.168.18.141";
+  const IP = "192.168.1.94";
   const uri = `http://${IP}:8080/s1/${id}`;
   useEffect(() => {
     axios

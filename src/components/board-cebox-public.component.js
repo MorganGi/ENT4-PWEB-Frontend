@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import DataFetching from "../components2/DataFetching";
-import UserService from "../services/user.service";
 import "../styles/DataFetching.css";
 
 export default class BoardCeboxPublic extends Component {

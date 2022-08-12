@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { Component } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
@@ -59,7 +59,7 @@ export default class Register extends Component {
       roles: [],
     };
     var tab = [];
-    axios.get("http://localhost:8080/roles").then((roles) => {
+    axios.get("http://192.168.1.94:8080/roles").then((roles) => {
       for (let i = 0; i < roles.data.length; i++) {
         tab.push(roles.data[i].name);
       }

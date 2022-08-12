@@ -9,6 +9,7 @@ function Footer({ techno }) {
         <a
           target="_blank"
           href="https://support.xivo.solutions/front/ticket.form.php"
+          rel="noreferrer"
         >
           support
         </a>

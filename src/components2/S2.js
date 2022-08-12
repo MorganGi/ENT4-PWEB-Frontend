@@ -6,7 +6,7 @@ import UpdateComponent from "./Update.component";
 import Uploader from "./Uploader";
 import Deleter from "./Deleter";
 import DeleteComponent from "./Delete.component";
-const IP = "192.168.18.141";
+const IP = "192.168.1.94";
 function S2({ id_s1, admin, techno }) {
   const [symps, setSymp] = useState([]);
   const [isSet, setisSet] = useState(false);

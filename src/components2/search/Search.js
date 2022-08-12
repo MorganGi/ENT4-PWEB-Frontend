@@ -6,13 +6,13 @@ import "./searche.css";
 function Searche({ techno }) {
   const [searched, setSearched] = useState("");
   const [texts, setText] = useState([]);
-  const [focusedlist, setfocusedlist] = useState();
+  // const [focusedlist, setfocusedlist] = useState();
   const [defaulte, setDefaulte] = useState("");
   const [a, setA] = useState([]);
   const [isModify, setisModify] = useState(false);
 
   function choixPb(e, i) {
-    setfocusedlist(e.target.value);
+    // setfocusedlist(e.target.value);
     const newA = a;
     if (newA[i] === e.target.value) {
       newA[i] = 0;

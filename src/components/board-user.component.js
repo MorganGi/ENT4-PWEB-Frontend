@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import UserService from "../services/user.service";
-import DataFetching from "../components2/DataFetching";
 import "../styles/DataFetching.css";
 
 export default class BoardUser extends Component {

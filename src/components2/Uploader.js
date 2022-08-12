@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-const IP = "192.168.18.141";
+const IP = "192.168.1.94";
 function Uploader({ id, from, techno }) {
   const [selectedFile, setSelectedFile] = useState();
   const [message, setMessage] = useState("");

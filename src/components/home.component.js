@@ -9,7 +9,7 @@ export default class Home extends Component {
     this.state = {
       content: "",
     };
-    axios.get("http://192.168.18.141:8080/").then((res) => {
+    axios.get("http://192.168.1.94:8080/").then((res) => {
       console.log(res);
     });
   }
