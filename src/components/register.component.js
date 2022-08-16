@@ -5,6 +5,8 @@ import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
 import AuthService from "../services/auth.service";
 import axios from "axios";
+import "../styles/register.css";
+
 const required = (value) => {
   if (!value) {
     return (
@@ -181,36 +183,45 @@ export default class Register extends Component {
                     validations={[required, vpassword]}
                   />
                 </div>
-                <h4>Groupes</h4>
-                <label htmlFor="check-1">User</label>
-                <input
-                  type="checkbox"
-                  name="check-1"
-                  value="user"
-                  onChange={this.onChangeGroupe}
-                />
-                <label htmlFor="check-2">Xivo</label>
-                <input
-                  type="checkbox"
-                  name="check-2"
-                  value="xivo"
-                  onChange={this.onChangeGroupe}
-                />
-                <label htmlFor="check-3">Cebox</label>
-                <input
-                  type="checkbox"
-                  name="check-3"
-                  value="cebox"
-                  onChange={this.onChangeGroupe}
-                />
-                <label htmlFor="check-3">Admin</label>
-                <input
-                  type="checkbox"
-                  name="check-3"
-                  value="admin"
-                  onChange={this.onChangeGroupe}
-                />
-
+                <div className="register-box">
+                  <div className="register-box-child">
+                    <input
+                      type="checkbox"
+                      name="check-1"
+                      value="user"
+                      onChange={this.onChangeGroupe}
+                    />
+                    <label htmlFor="check-1">User</label>
+                  </div>
+                  <div className="register-box-child">
+                    <input
+                      type="checkbox"
+                      name="check-2"
+                      value="xivo"
+                      onChange={this.onChangeGroupe}
+                    />
+                    <label htmlFor="check-2">Xivo</label>
+                  </div>
+                  <div className="register-box-child">
+                    <input
+                      type="checkbox"
+                      name="check-3"
+                      value="cebox"
+                      onChange={this.onChangeGroupe}
+                    />
+                    <label htmlFor="check-3">Cebox</label>
+                  </div>
+                  <div className="register-box-child">
+                    <input
+                      type="checkbox"
+                      name="check-3"
+                      value="admin"
+                      onChange={this.onChangeGroupe}
+                    />
+                    <label htmlFor="check-3">Admin</label>
+                  </div>
+                </div>
+                <br />
                 <div className="form-group">
                   <button className="btn btn-primary btn-block">Sign Up</button>
                 </div>

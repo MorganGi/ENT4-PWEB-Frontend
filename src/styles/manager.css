@@ -14,7 +14,7 @@
 
 .admin-container-d {
   width: 75%;
-  margin-top: 4.5%;
+  margin-top: 5.5%;
   justify-content: start;
 }
 
@@ -42,7 +42,7 @@
 .manager-roles-info {
   color: white;
   flex-grow: 0.5;
-  flex: 80%;
+  flex: 86%;
   background-color: #6e6e6e;
   display: flex;
   flex-direction: row;
@@ -55,6 +55,7 @@
   border: 1px solid black;
   width: 14.5%;
   color: white;
+  text-align: center;
 }
 /* INFO FIN */
 .manager-container {
@@ -81,14 +82,12 @@
 }
 
 .manager-roles {
-  flex-grow: 0.5;
   flex: 80%;
   background-color: #f7f7f7;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
-
+  justify-content: start;
   flex-wrap: nowrap;
   margin: 0px 30px;
 }
@@ -106,6 +105,8 @@
 
 .manager-del-user-admin {
   background-color: #f7f7f7;
-  border: 1px solid black;
+
   width: 15%;
+  display: flex;
+  margin: auto;
 }

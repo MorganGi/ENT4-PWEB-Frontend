@@ -32,13 +32,13 @@ function UserManager() {
         <div className="manager-roles-info">
           <div>ROLES</div>
         </div>
-        <button
+        <div
           className="manager-del-user-info"
           type="button"
           placeholder="Supprimer"
         >
           Action
-        </button>
+        </div>
       </div>
       {users.map((item, i) => (
         <div>
@@ -55,15 +55,13 @@ function UserManager() {
                 ))}
               </div>
 
-              <button
+              <div
                 key={item.id}
                 className="manager-del-user-admin"
                 type="button"
                 value={item.id}
                 placeholder="Supprimer"
-              >
-                Supprimer
-              </button>
+              ></div>
             </div>
           ) : (
             <div className="manager">

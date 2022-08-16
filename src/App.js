@@ -90,13 +90,6 @@ class App extends Component {
                 </Link>
               </li>
             )}
-            {currentUser && (
-              <li className="navbar-item">
-                <Link to={"/user"} className="navbar-link">
-                  Utilisateur
-                </Link>
-              </li>
-            )}
 
             {currentUser ? (
               <div className="">
