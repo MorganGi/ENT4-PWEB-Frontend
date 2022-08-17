@@ -83,7 +83,7 @@ function Searche({ techno }) {
             <input
               type="text"
               className="input-search"
-              placeholder="Recherche"
+              placeholder="Rechercher"
               onChange={(e) => recherche(e)}
             />
           </div>

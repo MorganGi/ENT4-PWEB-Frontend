@@ -1,6 +1,7 @@
 /* CSS XIVO  */
 
 .xivo-master {
+  background-color: #f1f1f1;
   display: flex;
   display: -webkit-flex;
   flex-direction: column;
@@ -14,7 +15,7 @@
 .xivo-faq-list-pb {
   margin: 5px;
   padding: 0px;
-  width: 50%;
+  width: 49%;
 }
 
 .xivo-faq-list-pb2 {
@@ -87,6 +88,16 @@
   margin-left: 50%;
 }
 
+.button-title-pb {
+  text-decoration: none;
+  border: none;
+  background-color: white;
+}
+
+.button-title-pb:active {
+  background-color: rgb(255, 131, 100);
+}
+
 .xivo-fleche {
   position: relative;
   top: 13px;
@@ -131,8 +142,8 @@
 .xivo-position-pdf {
   position: absolute;
   top: 163px;
-  left: 52%;
-  right: 5px;
+  left: 50%;
+  right: 15px;
   bottom: 10px;
 }
 
@@ -180,7 +191,7 @@
   display: -webkit-flex;
   flex-direction: column;
   min-height: 90vh;
-  background-color: #cfffc5;
+  background-color: #f1f1f1;
   background-image: url("./cebox.svg");
   background-repeat: no-repeat;
   background-size: 50% 50%;

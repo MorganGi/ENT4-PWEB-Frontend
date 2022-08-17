@@ -18,6 +18,8 @@ function S1({ id, admin, techno }) {
   const [a, setA] = useState([]);
   const IP = "192.168.1.94";
   const uri = `http://${IP}:8080/s1/${id}`;
+  const [findabr, setFindabr] = useState("");
+
   useEffect(() => {
     axios
       .get(uri)
@@ -61,12 +63,57 @@ function S1({ id, admin, techno }) {
     }
   }
 
+  function rechercheArbre(e) {
+    setFindabr(e.target.value);
+    if (
+      e.target.value === "" ||
+      e.target.value === " " ||
+      findabr === undefined
+    ) {
+      axios
+        .get(uri)
+        .then((res) => {
+          setSymp(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      axios
+        .get(`http://${IP}:8080/searchs1/${id}&${e.target.value}`)
+        .then((res) => {
+          setSymp(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }
+
   return (
     <div className={techno + "s1"}>
+      <input
+        className={techno + "-mainpbFilter"}
+        type="text"
+        placeholder="Filtré"
+        defaultValue=""
+        onChange={(e) => {
+          rechercheArbre(e);
+        }}
+      ></input>
       {symps.map((symp, i) => (
         <div className="" key={symp.id_s1}>
           <div className={techno + "-container-s1"}>
-            {symp.title_s1}
+            <button
+              className="button-title-pb"
+              value={symp.id_s1}
+              onClick={(e) => {
+                choixPb(e, i);
+                x(symp.id_s1);
+              }}
+            >
+              {symp.title_s1}
+            </button>
             <button
               className={techno + "-fleche"}
               value={symp.id_s1}

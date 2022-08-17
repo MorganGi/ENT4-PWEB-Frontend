@@ -59,7 +59,13 @@ function S2({ id_s1, admin, techno }) {
       {symps.map((symp, i) => (
         <div className={techno + "-main"} key={symp.id_s2}>
           <div className={techno + "-container-s2"}>
-            {symp.title_s2}
+            <button
+              className="button-title-pb"
+              value={symp.id_s2}
+              onClick={(e) => choixPb(e, i)}
+            >
+              {symp.title_s2}
+            </button>
             <button
               className={techno + "-fleche"}
               value={symp.id_s2}

@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import UserService from "../services/user.service";
 import "../components2/DataFetching.js";
 import axios from "axios";
+import imageWisper from "../styles/wisper.png";
+import imageXivo from "../styles/xivo.svg";
+import imageCebox from "../styles/cebox.svg";
+import "../styles/home.css";
 
 export default class Home extends Component {
   constructor(props) {
@@ -33,9 +37,15 @@ export default class Home extends Component {
   render() {
     return (
       <div className="container">
-        <header className="jumbotron">
-          <h3>{this.state.content} </h3>
-        </header>
+        <div className="main">
+          <div className="wisper">
+            <img src={imageWisper} />
+          </div>
+          <div className="xivo-cebox">
+            <img src={imageCebox} />
+            <img src={imageXivo} />
+          </div>
+        </div>
       </div>
     );
   }

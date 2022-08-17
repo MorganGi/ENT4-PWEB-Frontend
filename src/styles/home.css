@@ -1,0 +1,13 @@
+body {
+  background-color: #eceaea;
+}
+
+.wisper {
+  display: flex;
+  justify-content: center;
+}
+
+.xivo-cebox {
+  display: flex;
+  justify-content: space-around;
+}

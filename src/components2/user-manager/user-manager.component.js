@@ -4,18 +4,24 @@ import "../../styles/manager.css";
 
 function UserManager() {
   const [users, setUsers] = useState([]);
+  const [defaultroles, setDefaultRoles] = useState([]);
   const [info, setInfo] = useState(false);
-
+  const [addroles, setAddRoles] = useState([]);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  function delUser(e) {
-    axios
-      .post(`http://192.168.1.94:8080/api/del/user/${e.target.value}`)
-      .then(() => {
-        setInfo(!info);
-        setTimeout(() => {
-          setInfo(!info);
-        }, 5000);
-      });
+  function delUser(e, name) {
+    const answer = window.confirm(
+      "Etes-vous sur de vouloir supprimer : " + name
+    );
+    if (answer) {
+      axios
+        .post(`http://192.168.1.94:8080/api/del/user/${e.target.value}`)
+        .then(() => {
+          setInfo(true);
+          setTimeout(() => {
+            setInfo(!info);
+          }, 5000);
+        });
+    }
   }
 
   useEffect(() => {
@@ -23,14 +29,43 @@ function UserManager() {
       const tabUsers = res.data.map((item) => item);
       setUsers(tabUsers);
     });
-  }, [delUser]);
+    axios.get("http://192.168.1.94:8080/api/get/allroles").then((res) => {
+      setDefaultRoles(res.data);
+    });
+  }, [updateRoles]);
+
+  function onChangeGroupe(e) {
+    if (addroles.includes(e.target.value)) {
+      const value = addroles.filter((item) => item !== e.target.value);
+      setAddRoles(value);
+    } else {
+      setAddRoles(addroles.concat(e.target.value));
+    }
+  }
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  function updateRoles(e, name) {
+    const answer = window.confirm(
+      "Etes-vous sur de vouloir modifier : " + name
+    );
+    if (answer) {
+      axios
+        .put(`http://192.168.1.94:8080/api/update/roles/${e.target.value}`, {
+          addroles,
+        })
+        .catch((res) => {
+          console.log(res);
+        });
+    }
+    console.log("hello");
+  }
 
   return (
     <div className="manager-container">
       <div className="manager-info">
-        <div className="manager-user-info">USERS</div>
+        <div className="manager-user-info">Utilisateurs</div>
         <div className="manager-roles-info">
-          <div>ROLES</div>
+          <div>Roles</div>
         </div>
         <div
           className="manager-del-user-info"
@@ -43,13 +78,16 @@ function UserManager() {
       {users.map((item, i) => (
         <div>
           {item.username === "admin" ? (
-            <div className="manager">
-              <div className="manager-user" key={i}>
+            <div className="manager-admin">
+              <div key={item.id + "a"} className="manager-user-admin">
                 {item.username}
               </div>
-              <div className="manager-roles">
+              <div className="manager-roles-admin">
                 {item.roles.map((roles) => (
-                  <div key={roles.id} className="manager-roles-child">
+                  <div
+                    key={roles.id + "a"}
+                    className="manager-roles-child-admin"
+                  >
                     {roles.name}
                   </div>
                 ))}
@@ -65,33 +103,61 @@ function UserManager() {
             </div>
           ) : (
             <div className="manager">
-              <div className="manager-user" key={i}>
+              <div key={item.id} className="manager-user">
                 {item.username}
               </div>
               <div className="manager-roles">
-                {item.roles.map((roles) => (
-                  <div key={roles.id} className="manager-roles-child">
-                    {roles.name}
+                {item.roles.map((role) => (
+                  <div key={role.id} className="manager-roles-child">
+                    {role.name}
                   </div>
                 ))}
               </div>
 
               <button
-                key={item.id}
+                key={item.id + "b"}
                 className="manager-del-user"
                 type="button"
                 value={item.id}
                 placeholder="Supprimer"
                 onClick={(e) => {
-                  delUser(e);
+                  delUser(e, item.username);
                 }}
               >
                 Supprimer
+              </button>
+              <button
+                key={item.id + "c"}
+                className="manager-mod-user"
+                type="button"
+                value={item.id}
+                placeholder="Modifier"
+                onClick={(e) => {
+                  updateRoles(e, item.username);
+                }}
+              >
+                Modifier
               </button>
             </div>
           )}
         </div>
       ))}
+
+      <div className="update-roles">
+        <h4 className="update-roles-child-1">Selection des roles</h4>
+        {defaultroles.map((ro, i) => (
+          <div className="update-roles-child">
+            <div className="update-roles-child-box">{ro.name}</div>
+            <input
+              key={ro.id + "d"}
+              type="checkbox"
+              value={ro.id}
+              onChange={(e) => onChangeGroupe(e)}
+            ></input>
+          </div>
+        ))}
+      </div>
+
       {info && (
         <div className="alert alert-success">
           Utilisateur supprimé avec Succès

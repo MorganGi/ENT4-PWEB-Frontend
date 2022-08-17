@@ -76,7 +76,7 @@ function DataFetching({ admin, techno }) {
           <input
             className={techno + "-mainpbFilter"}
             type="text"
-            placeholder="Filter"
+            placeholder="Filtré"
             defaultValue=""
             onChange={(e) => {
               rechercheArbre(e);
@@ -85,7 +85,13 @@ function DataFetching({ admin, techno }) {
           {posts.map(({ id, title_pb }, i) => (
             <div key={id + "div"} id="mainpb" className={techno + "-mainpb"}>
               <div key={id + "div2"} className={techno + "-container-pb"}>
-                {title_pb}
+                <button
+                  className="button-title-pb"
+                  value={id}
+                  onClick={(e) => choixPb(e, i)}
+                >
+                  {title_pb}
+                </button>
                 <button
                   className={techno + "-fleche"}
                   value={id}

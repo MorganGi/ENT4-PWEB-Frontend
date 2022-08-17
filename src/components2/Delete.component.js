@@ -48,7 +48,7 @@ export default class DeleteComponent extends React.Component {
           <input
             type="submit"
             className="input-search"
-            value="Supprimer categorie"
+            value="Supprimer item"
           />
         </div>
       </form>
