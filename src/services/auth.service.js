@@ -1,9 +1,5 @@
-import axios from "axios";
 import api from "./api.js";
 import TokenService from "./token.service.js";
-
-const IP = "10.21.21.2";
-const API_URL = `http://${IP}:8080/api/auth/`;
 
 // class AuthService {
 //   login(username, password) {

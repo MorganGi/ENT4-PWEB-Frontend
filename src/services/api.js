@@ -1,7 +1,9 @@
 import axios from "axios";
 import TokenService from "./token.service";
+import { IpBackend } from "../components2/ip.backend";
+
 const instance = axios.create({
-  baseURL: "http://10.21.21.2:8080/api",
+  baseURL: `http://${IpBackend}:8080/api`,
   headers: {
     "Content-Type": "application/json",
   },

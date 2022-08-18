@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../../styles/manager.css";
+import { IpBackend } from "../ip.backend";
 
 function UserManager() {
   const [users, setUsers] = useState([]);
@@ -14,7 +15,7 @@ function UserManager() {
     );
     if (answer) {
       axios
-        .post(`http://10.21.21.2:8080/api/del/user/${e.target.value}`)
+        .post(`http://${IpBackend}:8080/api/del/user/${e.target.value}`)
         .then(() => {
           setInfo(true);
           setTimeout(() => {
@@ -25,11 +26,11 @@ function UserManager() {
   }
 
   useEffect(() => {
-    axios.get("http://10.21.21.2:8080/api/get/users").then((res) => {
+    axios.get(`http://${IpBackend}:8080/api/get/users`).then((res) => {
       const tabUsers = res.data.map((item) => item);
       setUsers(tabUsers);
     });
-    axios.get("http://10.21.21.2:8080/api/get/allroles").then((res) => {
+    axios.get(`http://${IpBackend}:8080/api/get/allroles`).then((res) => {
       setDefaultRoles(res.data);
     });
   }, [updateRoles]);
@@ -50,7 +51,7 @@ function UserManager() {
     );
     if (answer) {
       axios
-        .put(`http://10.21.21.2:8080/api/update/roles/${e.target.value}`, {
+        .put(`http://${IpBackend}:8080/api/update/roles/${e.target.value}`, {
           addroles,
         })
         .catch((res) => {

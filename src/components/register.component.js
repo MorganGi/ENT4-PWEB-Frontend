@@ -6,6 +6,7 @@ import { isEmail } from "validator";
 import AuthService from "../services/auth.service";
 import axios from "axios";
 import "../styles/register.css";
+import { IpBackend } from "../components2/ip.backend";
 
 const required = (value) => {
   if (!value) {
@@ -61,7 +62,7 @@ export default class Register extends Component {
       roles: [],
     };
     var tab = [];
-    axios.get("http://10.21.21.2:8080/roles").then((roles) => {
+    axios.get(`http://${IpBackend}:8080/roles`).then((roles) => {
       for (let i = 0; i < roles.data.length; i++) {
         tab.push(roles.data[i].name);
       }

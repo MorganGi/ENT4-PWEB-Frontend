@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "../styles/DataFetching.css";
+import { IpBackend } from "./ip.backend";
 export default class UpdateComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -27,7 +28,7 @@ export default class UpdateComponent extends React.Component {
 
   updatee(e, db, title, champ, id) {
     axios
-      .put(`http://10.21.21.2:8080/update/${db}&${title}&${e}&${id}&${champ}`)
+      .put(`http://${IpBackend}:8080/update/${db}&${title}&${e}&${id}&${champ}`)
       .catch((err) => {
         console.log(err);
       });

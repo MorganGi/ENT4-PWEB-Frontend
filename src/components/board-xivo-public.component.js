@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import DataFetching from "../components2/DataFetching";
 import "../styles/DataFetching.css";
+import "../styles/home.css";
 
 export default class BoardXivoPublic extends Component {
   constructor(props) {
