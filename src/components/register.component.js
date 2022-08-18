@@ -61,7 +61,7 @@ export default class Register extends Component {
       roles: [],
     };
     var tab = [];
-    axios.get("http://192.168.1.94:8080/roles").then((roles) => {
+    axios.get("http://10.21.21.2:8080/roles").then((roles) => {
       for (let i = 0; i < roles.data.length; i++) {
         tab.push(roles.data[i].name);
       }
@@ -93,7 +93,7 @@ export default class Register extends Component {
     } else {
       this.setState({ roles: this.state.roles.concat(e.target.value) });
     }
-    //DEBBUG BOX
+    // DEBBUG BOX
     // setTimeout(() => {
     //   console.log(this.state.roles);
     // }, [10]);

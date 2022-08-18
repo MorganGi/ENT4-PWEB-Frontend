@@ -51,7 +51,7 @@ function Searche({ techno }) {
 
     if (searched !== "") {
       axios
-        .get(`http://192.168.18.141:8080/extract-text/${techno}/${searched}`)
+        .get(`http://10.21.21.2:8080/extract-text/${techno}/${searched}`)
         .then((res) => {
           if (res.data.length === 0) {
             setDefaulte("Aucun article trouvé...");

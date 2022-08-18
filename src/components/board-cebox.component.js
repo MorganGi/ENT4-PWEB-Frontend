@@ -8,6 +8,7 @@ export default class BoardCebox extends Component {
     super(props);
     this.state = {
       content: "",
+      access: false,
     };
   }
 
@@ -16,8 +17,8 @@ export default class BoardCebox extends Component {
       (response) => {
         this.setState({
           content: response.data,
+          access: true,
         });
-        console.log(response.data);
       },
       (error) => {
         this.setState({
@@ -27,6 +28,7 @@ export default class BoardCebox extends Component {
               error.response.data.message) ||
             error.message ||
             error.toString(),
+          access: false,
         });
       }
     );
@@ -36,7 +38,13 @@ export default class BoardCebox extends Component {
     return (
       <div className="master-container">
         <div className="master-container">
-          <DataFetching admin={true} techno={"cebox"} />
+          {this.state.access ? (
+            <DataFetching admin={true} techno={"cebox"} />
+          ) : (
+            <div className="alert alert-danger">
+              Votre token est expiré / non valide connectez vous de nouveau
+            </div>
+          )}
         </div>
       </div>
     );

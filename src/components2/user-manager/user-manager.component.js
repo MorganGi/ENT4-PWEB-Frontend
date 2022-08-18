@@ -14,7 +14,7 @@ function UserManager() {
     );
     if (answer) {
       axios
-        .post(`http://192.168.1.94:8080/api/del/user/${e.target.value}`)
+        .post(`http://10.21.21.2:8080/api/del/user/${e.target.value}`)
         .then(() => {
           setInfo(true);
           setTimeout(() => {
@@ -25,11 +25,11 @@ function UserManager() {
   }
 
   useEffect(() => {
-    axios.get("http://192.168.1.94:8080/api/get/users").then((res) => {
+    axios.get("http://10.21.21.2:8080/api/get/users").then((res) => {
       const tabUsers = res.data.map((item) => item);
       setUsers(tabUsers);
     });
-    axios.get("http://192.168.1.94:8080/api/get/allroles").then((res) => {
+    axios.get("http://10.21.21.2:8080/api/get/allroles").then((res) => {
       setDefaultRoles(res.data);
     });
   }, [updateRoles]);
@@ -50,14 +50,13 @@ function UserManager() {
     );
     if (answer) {
       axios
-        .put(`http://192.168.1.94:8080/api/update/roles/${e.target.value}`, {
+        .put(`http://10.21.21.2:8080/api/update/roles/${e.target.value}`, {
           addroles,
         })
         .catch((res) => {
           console.log(res);
         });
     }
-    console.log("hello");
   }
 
   return (

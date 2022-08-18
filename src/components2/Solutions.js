@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Pdf from "./pdf/Pdf";
-const IP = "192.168.1.94";
+const IP = "10.21.21.2";
 
 function Solutions({ id_s2, techno }) {
   const [symps, setSymp] = useState([]);

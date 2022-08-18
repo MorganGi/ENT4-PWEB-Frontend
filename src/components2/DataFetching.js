@@ -7,7 +7,7 @@ import CreateComponent from "./Create.component";
 import DeleteComponent from "./Delete.component";
 import Searche from "./search/Search";
 import Footer from "./Footer";
-const IP = "192.168.1.94";
+const IP = "10.21.21.2";
 // import AuthService from "../services/auth.service";
 
 function DataFetching({ admin, techno }) {
