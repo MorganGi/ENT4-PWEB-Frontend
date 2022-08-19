@@ -45,7 +45,7 @@ body {
 
   /* Create the parallax scrolling effect */
   background-attachment: fixed;
-  background-position: 15% 50%;
+  background-position: 20% 40%;
   background-repeat: no-repeat;
 }
 
@@ -58,7 +58,7 @@ body {
 
   /* Create the parallax scrolling effect */
   background-attachment: fixed;
-  background-position: 15% 60%;
+  background-position: 20% 70%;
   background-repeat: no-repeat;
 }
 .parallax-xivo {

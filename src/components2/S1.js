@@ -96,7 +96,7 @@ function S1({ id, admin, techno }) {
       <input
         className={techno + "-mainpbFilter"}
         type="text"
-        placeholder="Filtré"
+        placeholder="Filtrer"
         defaultValue=""
         onChange={(e) => {
           rechercheArbre(e);
