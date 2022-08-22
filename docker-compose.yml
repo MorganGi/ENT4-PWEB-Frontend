@@ -10,9 +10,6 @@ services:
       - 8081:8081
     container_name: react-container
     command: npm start
-    networks:
-      network:
-        ipv4_address: 10.21.21.1
 
   node-container:
     build:
@@ -28,9 +25,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    networks:
-      network:
-        ipv4_address: 10.21.21.2
 
   db:
     image: mariadb
@@ -48,13 +42,3 @@ services:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       timeout: 1s
       retries: 5
-    networks:
-      network:
-        ipv4_address: 10.21.21.3
-
-networks:
-  network:
-    ipam:
-      config:
-        - subnet: 10.21.21.1/8
-          gateway: 10.21.21.254
