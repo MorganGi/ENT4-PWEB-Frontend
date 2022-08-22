@@ -43,7 +43,19 @@
   background-color: white;
 }
 
+.xivo-mains1Filter {
+  margin-top: 15px;
+  padding-top: 5px;
+  margin-left: 25%;
+  border: 1px #ff5722 solid;
+  background-color: white;
+}
 .xivo-mainpbFilter::placeholder {
+  color: rgb(167, 167, 167);
+  text-align: center;
+}
+
+.xivo-mains1Filter::placeholder {
   color: rgb(167, 167, 167);
   text-align: center;
 }
@@ -88,13 +100,13 @@
   margin-left: 50%;
 }
 
-.button-title-pb {
+.xivo-button-title-pb {
   text-decoration: none;
   border: none;
   background-color: white;
 }
 
-.button-title-pb:active {
+.xivo-button-title-pb:active {
   background-color: rgb(255, 131, 100);
 }
 
@@ -229,7 +241,19 @@
   background-color: white;
 }
 
+.cebox-mains1Filter {
+  margin-top: 15px;
+  padding-top: 5px;
+  margin-left: 25%;
+  border: 1px #06b300 solid;
+  background-color: white;
+}
+
 .cebox-mainpbFilter::placeholder {
+  color: rgb(167, 167, 167);
+  text-align: center;
+}
+.cebox-mains1Filter::placeholder {
   color: rgb(167, 167, 167);
   text-align: center;
 }
@@ -250,6 +274,15 @@
   margin-left: 0%;
 }
 
+.cebox-button-title-pb {
+  text-decoration: none;
+  border: none;
+  background-color: white;
+}
+
+.cebox-button-title-pb:active {
+  background-color: #22ad1d;
+}
 .cebox-container-s1 {
   display: inline;
   padding-left: 25%;
@@ -285,7 +318,7 @@
 }
 
 .cebox-fleche:active {
-  background-color: rgb(34, 173, 29);
+  background-color: #22ad1d;
   border-radius: 25px;
 }
 

@@ -22,7 +22,7 @@ export default class DeleteComponent extends React.Component {
       console.log("Thing was saved to the database.");
 
       axios
-        .put(`http://${IpBackend}:8080/delete/${id}&${db}&${champ}`)
+        .delete(`http://${IpBackend}:8080/delete/${id}&${db}&${champ}`)
         .then((res) => {
           console.log("PUTting : ", res.data);
         })

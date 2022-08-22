@@ -94,7 +94,7 @@ function S1({ id, admin, techno }) {
   return (
     <div className={techno + "s1"}>
       <input
-        className={techno + "-mainpbFilter"}
+        className={techno + "-mains1Filter"}
         type="text"
         placeholder="Filtrer"
         defaultValue=""
@@ -106,7 +106,7 @@ function S1({ id, admin, techno }) {
         <div className="" key={symp.id_s1}>
           <div className={techno + "-container-s1"}>
             <button
-              className="button-title-pb"
+              className={techno + "-button-title-pb"}
               value={symp.id_s1}
               onClick={(e) => {
                 choixPb(e, i);

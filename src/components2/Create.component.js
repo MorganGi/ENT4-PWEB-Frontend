@@ -28,7 +28,7 @@ export default class CreateComponent extends React.Component {
 
   updatee(e, db, id, champ, champ2) {
     axios
-      .put(
+      .post(
         `http://${IpBackend}:8080/create/${db}&${id}&${e}&${champ}&${champ2}`
       )
       .then((res) => {

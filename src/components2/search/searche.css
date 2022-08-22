@@ -41,7 +41,8 @@
 .btn-search {
   width: 30px;
   height: 30px;
-  border-style: none;
+  border-style: 1px;
+  border: 1px solid;
   font-size: 20px;
   font-weight: bold;
   outline: none;
@@ -53,6 +54,7 @@
   pointer-events: painted;
   background: url("loupe.jpg") no-repeat;
   background-size: contain;
+  border: 1px solid black;
 }
 
 .btn-search:focus ~ .input-search {
@@ -175,7 +177,7 @@
   border: 1px solid #aaa;
   margin: 0.4em 1rem;
   padding: 0.4rem;
-  background-color: rgb(224, 224, 224);
+  background-color: #ffffff;
 }
 
 .chargement {

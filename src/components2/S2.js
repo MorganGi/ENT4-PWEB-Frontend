@@ -60,7 +60,7 @@ function S2({ id_s1, admin, techno }) {
         <div className={techno + "-main"} key={symp.id_s2}>
           <div className={techno + "-container-s2"}>
             <button
-              className="button-title-pb"
+              className={techno + "-button-title-pb"}
               value={symp.id_s2}
               onClick={(e) => choixPb(e, i)}
             >

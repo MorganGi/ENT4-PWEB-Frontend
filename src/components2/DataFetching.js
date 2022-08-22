@@ -87,7 +87,7 @@ function DataFetching({ admin, techno }) {
             <div key={id + "div"} id="mainpb" className={techno + "-mainpb"}>
               <div key={id + "div2"} className={techno + "-container-pb"}>
                 <button
-                  className="button-title-pb"
+                  className={techno + "-button-title-pb"}
                   value={id}
                   onClick={(e) => choixPb(e, i)}
                 >
