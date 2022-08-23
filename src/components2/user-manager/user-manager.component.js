@@ -33,7 +33,7 @@ function UserManager() {
     axios.get(`http://${IpBackend}:8080/api/get/allroles`).then((res) => {
       setDefaultRoles(res.data);
     });
-  }, [updateRoles]);
+  }, []);
 
   function onChangeGroupe(e) {
     if (addroles.includes(e.target.value)) {
@@ -57,6 +57,7 @@ function UserManager() {
         .catch((res) => {
           console.log(res);
         });
+      window.location.reload();
     }
   }
 

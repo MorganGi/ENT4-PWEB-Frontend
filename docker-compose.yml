@@ -2,10 +2,10 @@ version: "2.1"
 services:
   react-container:
     build:
-      context: ./react-jwt-auth/react-jwt-auth/
+      context: ./ENT4-PWEB-Frontend
       dockerfile: Dockerfile
     volumes:
-      - ./react-jwt-auth/react-jwt-auth:/app/client #PERMET DE MODIFIER LES FICHIER SANS REBUILD DOCKER
+      - ./ENT4-PWEB-Frontend/:/app/client #PERMET DE MODIFIER LES FICHIER SANS REBUILD DOCKER
     ports:
       - 8081:8081
     container_name: react-container
@@ -13,11 +13,11 @@ services:
 
   node-container:
     build:
-      context: ./node-js-jwt-auth/
+      context: ./ENT4-PWEB-Backend/
       dockerfile: Dockerfile
     volumes:
-      - ./react-jwt-auth/react-jwt-auth/public/pdf:/app/server/pdf/
-      - ./node-js-jwt-auth:/app/server #PERMET DE MODIFIER LES FICHIER SANS REBUILD DOCKER
+      - ./ENT4-PWEB-Frontend/public/pdf:/app/server/pdf/
+      - ./ENT4-PWEB-Backend:/app/server #PERMET DE MODIFIER LES FICHIER SANS REBUILD DOCKER
     ports:
       - 8080:8080
     container_name: node-container
@@ -29,10 +29,10 @@ services:
   db:
     image: mariadb
     restart: always
-    container_name: db-react-container
+    container_name: db-container
     volumes:
-      - ./db/init:/docker-entrypoint-initdb.d
-      - ./db/data:/var/lib/mysql #RENDRE LA DB PERSISTANTE
+      - ./ENT4-PWEB-Backend/db/init:/docker-entrypoint-initdb.d
+      - ./ENT4-PWEB-Backend/db/data:/var/lib/mysql #RENDRE LA DB PERSISTANTE
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: user
