@@ -43,6 +43,7 @@ export default class Home extends Component {
           <div className="flex-droit">
             <div className="text-wisper">
               <h1>Wisper</h1>
+              <br />
               <p>
                 Wisper est un acteur majeur des solutions de PC managés en
                 entreprise.
@@ -89,6 +90,7 @@ export default class Home extends Component {
           <div className="flex-gauche">
             <div className="text-xivo">
               <h1>Xivo</h1>
+              <br />
               <p>
                 Première solution Open Source de communications unifiées et
                 centre d’appels. Scalable et interopérable, XiVO est le trublion
@@ -110,6 +112,7 @@ export default class Home extends Component {
           <div className="flex-droit">
             <div className="text-cebox">
               <h1>Cebox</h1>
+              <br />
               <p>
                 ceBox est l’unique solution de virtualisation de PC sans
                 infrastructure de serveur qui fonctionne sur tous les types
