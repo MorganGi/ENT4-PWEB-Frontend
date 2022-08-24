@@ -7,7 +7,7 @@ services:
     volumes:
       - ./ENT4-PWEB-Frontend/:/app/client #PERMET DE MODIFIER LES FICHIER SANS REBUILD DOCKER
     ports:
-      - 8081:8081
+      - 3021:3021
     container_name: react-container
     command: npm start
 
@@ -19,7 +19,7 @@ services:
       - ./ENT4-PWEB-Frontend/public/pdf:/app/server/pdf/
       - ./ENT4-PWEB-Backend:/app/server #PERMET DE MODIFIER LES FICHIER SANS REBUILD DOCKER
     ports:
-      - 8080:8080
+      - 3020:3020
     container_name: node-container
     command: npm start
     depends_on:

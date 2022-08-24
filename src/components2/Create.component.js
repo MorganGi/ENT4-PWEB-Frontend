@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { IpBackend } from "./ip.backend";
+import { IpBackend, PortBackend } from "./ip.backend";
 
 export default class CreateComponent extends React.Component {
   constructor(props) {
@@ -29,7 +29,7 @@ export default class CreateComponent extends React.Component {
   updatee(e, db, id, champ, champ2) {
     axios
       .post(
-        `http://${IpBackend}:8080/create/${db}&${id}&${e}&${champ}&${champ2}`
+        `http://${IpBackend}:${PortBackend}/create/${db}&${id}&${e}&${champ}&${champ2}`
       )
       .then((res) => {
         console.log("put : ", res.data);

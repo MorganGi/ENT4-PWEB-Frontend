@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { IpBackend } from "./ip.backend";
+import { IpBackend, PortBackend } from "./ip.backend";
 
 function Uploader({ id, from, techno }) {
   const [selectedFile, setSelectedFile] = useState();
@@ -23,7 +23,7 @@ function Uploader({ id, from, techno }) {
 
       axios
         .post(
-          `http://${IpBackend}:8080/upload-avatar/${techno}/${id}&${from}`,
+          `http://${IpBackend}:${PortBackend}/upload-avatar/${techno}/${id}&${from}`,
           formData
         )
         .catch((e) => {

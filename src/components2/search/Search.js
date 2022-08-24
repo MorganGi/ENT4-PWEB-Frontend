@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import Pdf from "../pdf/Pdf";
 import "./searche.css";
-import { IpBackend } from "../ip.backend";
+import { IpBackend, PortBackend } from "../ip.backend";
 
 function Searche({ techno }) {
   const [searched, setSearched] = useState("");
@@ -52,7 +52,9 @@ function Searche({ techno }) {
 
     if (searched !== "") {
       axios
-        .get(`http://${IpBackend}:8080/extract-text/${techno}/${searched}`)
+        .get(
+          `http://${IpBackend}:${PortBackend}/extract-text/${techno}/${searched}`
+        )
         .then((res) => {
           if (res.data.length === 0) {
             setDefaulte("Aucun article trouvé...");

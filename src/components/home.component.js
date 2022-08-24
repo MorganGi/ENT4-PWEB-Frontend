@@ -4,7 +4,7 @@ import "../components2/DataFetching.js";
 import axios from "axios";
 import "../styles/home.css";
 
-import { IpBackend } from "../components2/ip.backend";
+import { IpBackend, PortBackend } from "../components2/ip.backend";
 
 export default class Home extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ export default class Home extends Component {
     this.state = {
       content: "",
     };
-    axios.get(`http://${IpBackend}:8080/`).then((res) => {
+    axios.get(`http://${IpBackend}:${PortBackend}/`).then((res) => {
       console.log(res);
     });
   }

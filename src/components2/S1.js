@@ -7,7 +7,7 @@ import DeleteComponent from "./Delete.component";
 import Pdf from "./pdf/Pdf";
 import Uploader from "./Uploader";
 import Deleter from "./Deleter";
-import { IpBackend } from "./ip.backend";
+import { IpBackend, PortBackend } from "./ip.backend";
 
 function S1({ id, admin, techno }) {
   const [isSet, setisSet] = useState(false);
@@ -18,7 +18,7 @@ function S1({ id, admin, techno }) {
   const [isModify, setisModify] = useState(false);
   const [a, setA] = useState([]);
 
-  const uri = `http://${IpBackend}:8080/s1/${id}`;
+  const uri = `http://${IpBackend}:${PortBackend}/s1/${id}`;
   const [findabr, setFindabr] = useState("");
 
   useEffect(() => {
@@ -35,7 +35,7 @@ function S1({ id, admin, techno }) {
 
   function x(id_s1) {
     axios
-      .get(`http://${IpBackend}:8080/solutionsbis/${id_s1}`)
+      .get(`http://${IpBackend}:${PortBackend}/solutionsbis/${id_s1}`)
       .then((res) => {
         // console.log(res);
         if (res.data[0]) {
@@ -81,7 +81,9 @@ function S1({ id, admin, techno }) {
         });
     } else {
       axios
-        .get(`http://${IpBackend}:8080/searchs1/${id}&${e.target.value}`)
+        .get(
+          `http://${IpBackend}:${PortBackend}/searchs1/${id}&${e.target.value}`
+        )
         .then((res) => {
           setSymp(res.data);
         })

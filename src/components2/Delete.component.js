@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { IpBackend } from "./ip.backend";
+import { IpBackend, PortBackend } from "./ip.backend";
 
 export default class DeleteComponent extends React.Component {
   constructor(props) {
@@ -22,7 +22,9 @@ export default class DeleteComponent extends React.Component {
       console.log("Thing was saved to the database.");
 
       axios
-        .delete(`http://${IpBackend}:8080/delete/${id}&${db}&${champ}`)
+        .delete(
+          `http://${IpBackend}:${PortBackend}/delete/${id}&${db}&${champ}`
+        )
         .then((res) => {
           console.log("PUTting : ", res.data);
         })

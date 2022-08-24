@@ -6,7 +6,7 @@ import UpdateComponent from "./Update.component";
 import Uploader from "./Uploader";
 import Deleter from "./Deleter";
 import DeleteComponent from "./Delete.component";
-import { IpBackend } from "./ip.backend";
+import { IpBackend, PortBackend } from "./ip.backend";
 function S2({ id_s1, admin, techno }) {
   const [symps, setSymp] = useState([]);
   const [isSet, setisSet] = useState(false);
@@ -14,7 +14,7 @@ function S2({ id_s1, admin, techno }) {
   const [isModify, setisModify] = useState(false);
   const [a, setA] = useState([]);
 
-  const uri = `http://${IpBackend}:8080/s2/${id_s1}`;
+  const uri = `http://${IpBackend}:${PortBackend}/s2/${id_s1}`;
 
   function choixPb(e, i) {
     setisSet(!isSet);

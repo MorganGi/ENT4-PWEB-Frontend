@@ -1,11 +1,11 @@
 import React from "react";
 import axios from "axios";
-import { IpBackend } from "./ip.backend";
+import { IpBackend, PortBackend } from "./ip.backend";
 
 function Deleter({ id, from }) {
   const handleSubmission = (e) => {
     axios
-      .get(`http://${IpBackend}:8080/solutions/del/${id}&${from}`)
+      .get(`http://${IpBackend}:${PortBackend}/solutions/del/${id}&${from}`)
       .catch((e) => {
         console.error("Error", e);
       });
