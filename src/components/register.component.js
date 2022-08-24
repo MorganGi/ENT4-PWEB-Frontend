@@ -118,6 +118,9 @@ export default class Register extends Component {
             message: response.data.message,
             successful: true,
           });
+          setTimeout(() => {
+            window.location.reload();
+          }, 2000);
         },
         (error) => {
           const resMessage =
