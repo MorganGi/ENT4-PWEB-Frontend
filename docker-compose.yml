@@ -27,7 +27,7 @@ services:
         condition: service_healthy
 
   db:
-    image: mariadb
+    image: mariadb:10.7
     restart: always
     container_name: db-container
     volumes:
