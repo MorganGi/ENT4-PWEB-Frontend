@@ -52,9 +52,9 @@ function Searche({ techno }) {
 
     if (searched !== "") {
       axios
-        .get(
-          `http://${IpBackend}:${PortBackend}/extract-text/${techno}/${searched}`
-        )
+        .get(`http://${IpBackend}:${PortBackend}/extract-text/${techno}`, {
+          params: { search: searched },
+        })
         .then((res) => {
           if (res.data.length === 0) {
             setDefaulte("Aucun article trouvé...");
